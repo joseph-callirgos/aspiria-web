@@ -17,7 +17,7 @@ export interface TimelineItem {
   category: string;
   icon: string;
   relatedIds: number[];
-  status: "completed" | "in-progress" | "pending";
+  status: "started" | "completed" | "in-progress" | "pending";
   energy: number;
 }
 
@@ -101,9 +101,17 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
   };
 
   const getStatusStyles = (status: TimelineItem["status"]) => {
+    if (status === "started")    return "text-teal bg-teal/10 border-teal/40";
     if (status === "completed")  return "text-white bg-black border-white";
     if (status === "in-progress") return "text-black bg-white border-black";
     return "text-white bg-black/40 border-white/50";
+  };
+
+  const getStatusLabel = (status: TimelineItem["status"]) => {
+    if (status === "started")     return "INICIADO";
+    if (status === "completed")   return "COMPLETADO";
+    if (status === "in-progress") return "EN CURSO";
+    return "PENDIENTE";
   };
 
   return (
@@ -183,7 +191,7 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
                   <CardHeader className="pb-2 p-4">
                     <div className="flex justify-between items-center">
                       <Badge className={`px-2 text-[10px] ${getStatusStyles(item.status)}`}>
-                        {item.status === "completed" ? "COMPLETADO" : item.status === "in-progress" ? "EN CURSO" : "PENDIENTE"}
+                        {getStatusLabel(item.status)}
                       </Badge>
                       <span className="text-[10px] font-mono text-white/40">{item.date}</span>
                     </div>

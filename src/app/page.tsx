@@ -21,8 +21,8 @@ const aspiriaPhases: TimelineItem[] = [
     category: 'Diagnóstico',
     icon: 'Search',
     relatedIds: [2],
-    status: 'completed',
-    energy: 100,
+    status: 'started',
+    energy: 25,
   },
   {
     id: 2,
@@ -32,8 +32,8 @@ const aspiriaPhases: TimelineItem[] = [
     category: 'Planificación',
     icon: 'FileText',
     relatedIds: [1, 3],
-    status: 'completed',
-    energy: 80,
+    status: 'in-progress',
+    energy: 50,
   },
   {
     id: 3,
@@ -44,7 +44,7 @@ const aspiriaPhases: TimelineItem[] = [
     icon: 'Zap',
     relatedIds: [2, 4],
     status: 'in-progress',
-    energy: 60,
+    energy: 75,
   },
   {
     id: 4,
@@ -54,8 +54,8 @@ const aspiriaPhases: TimelineItem[] = [
     category: 'Tecnología',
     icon: 'BarChart3',
     relatedIds: [3],
-    status: 'pending',
-    energy: 40,
+    status: 'in-progress',
+    energy: 100,
   },
 ];
 
