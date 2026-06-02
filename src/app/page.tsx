@@ -162,8 +162,8 @@ export default function Home() {
 
       {/* ── EL PROBLEMA ── */}
       <section className="bg-off py-24">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="px-12">
+          <div className="grid md:grid-cols-2 gap-16 items-center max-w-5xl">
 
             {/* left: stat + caption + metrics */}
             <div>
