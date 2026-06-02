@@ -237,7 +237,7 @@ export default function Home() {
 
       {/* ── POR QUÉ ASPIRIA ── */}
       <section id="tecnologia" className="bg-navy">
-        <div className="max-w-5xl mx-auto px-6 pt-20 pb-4">
+        <div className="max-w-5xl mx-auto px-6 pt-12 pb-0">
           <span className="text-[11px] font-bold tracking-[.18em] uppercase text-white/40 block mb-4">Por qué ASPIRIA</span>
           <h2 className="font-serif text-4xl font-normal text-white leading-tight max-w-lg mb-3">
             Lo que no se mide,<br /><em className="italic text-teal-l">no se puede mejorar.</em>
