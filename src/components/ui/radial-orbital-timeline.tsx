@@ -83,7 +83,7 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
 
   const calculateNodePosition = (index: number, total: number) => {
     const angle = ((index / total) * 360 + rotationAngle) % 360;
-    const radius = 180;
+    const radius = 210;
     const radian = (angle * Math.PI) / 180;
     const x = radius * Math.cos(radian);
     const y = radius * Math.sin(radian);
@@ -133,7 +133,7 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
         </div>
 
         {/* Orbit ring */}
-        <div className="absolute w-[380px] h-[380px] rounded-full border border-white/10" />
+        <div className="absolute w-[440px] h-[440px] rounded-full border border-white/15" />
 
         {timelineData.map((item, index) => {
           const position = calculateNodePosition(index, timelineData.length);
@@ -167,12 +167,21 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
               />
 
               {/* Node dot */}
-              <div className={`
-                w-16 h-16 rounded-full flex items-center justify-center border-2 transition-all duration-300
-                ${isExpanded ? "bg-teal text-navy-d border-teal scale-125 shadow-lg shadow-teal/40"
-                  : isRelated ? "bg-white/50 text-black border-white animate-pulse"
-                  : "bg-navy-c text-white border-white/50 shadow-[0_0_16px_rgba(0,196,170,0.2)]"}
-              `}>
+              <div
+                className={`
+                  w-16 h-16 rounded-full flex items-center justify-center border-2 transition-all duration-300
+                  ${isExpanded
+                    ? "bg-teal text-navy-d border-teal scale-125"
+                    : isRelated
+                    ? "bg-white/50 text-black border-white animate-pulse"
+                    : "bg-navy-c text-white border-teal/60"}
+                `}
+                style={!isExpanded && !isRelated ? {
+                  boxShadow: '0 0 12px rgba(0,196,170,0.5), 0 0 32px rgba(0,196,170,0.25), 0 0 60px rgba(0,196,170,0.1)',
+                } : isExpanded ? {
+                  boxShadow: '0 0 20px rgba(0,196,170,0.7), 0 0 50px rgba(0,196,170,0.4)',
+                } : {}}
+              >
                 {Icon && <Icon size={24} strokeWidth={1.5} />}
               </div>
 
