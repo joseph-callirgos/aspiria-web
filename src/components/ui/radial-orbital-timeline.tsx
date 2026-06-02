@@ -70,7 +70,7 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
   useEffect(() => {
     if (!autoRotate) return;
     const timer = setInterval(() => {
-      setRotationAngle((prev) => Number(((prev + 0.3) % 360).toFixed(3)));
+      setRotationAngle((prev) => Number(((prev + 0.7) % 360).toFixed(3)));
     }, 50);
     return () => clearInterval(timer);
   }, [autoRotate]);
@@ -168,12 +168,12 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
 
               {/* Node dot */}
               <div className={`
-                w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all duration-300
-                ${isExpanded ? "bg-teal text-navy-d border-teal scale-150 shadow-lg shadow-teal/30"
+                w-16 h-16 rounded-full flex items-center justify-center border-2 transition-all duration-300
+                ${isExpanded ? "bg-teal text-navy-d border-teal scale-125 shadow-lg shadow-teal/40"
                   : isRelated ? "bg-white/50 text-black border-white animate-pulse"
-                  : "bg-navy-c text-white border-white/30"}
+                  : "bg-navy-c text-white border-white/50 shadow-[0_0_16px_rgba(0,196,170,0.2)]"}
               `}>
-                {Icon && <Icon size={15} />}
+                {Icon && <Icon size={24} strokeWidth={1.5} />}
               </div>
 
               {/* Label */}
