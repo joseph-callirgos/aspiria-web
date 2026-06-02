@@ -189,8 +189,8 @@ export default function Home() {
             </div>
           </div>
 
-          {/* bottom: pain points in 3 columns */}
-          <div className="grid grid-cols-3 gap-6 max-w-4xl">
+          {/* bottom: pain points — right half */}
+          <div className="grid grid-cols-3 gap-6 ml-auto max-w-[58%]">
             {[
               { icon: '📍', title: 'Sin visibilidad de campo', desc: 'No se sabe qué ejecutivo visitó, cuándo ni qué encontró en el PDV.' },
               { icon: '📊', title: 'Sin métricas accionables', desc: 'Reportes manuales, tardíos y sin cruce entre cobertura y resultado.' },
