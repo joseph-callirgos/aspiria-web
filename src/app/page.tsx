@@ -175,7 +175,7 @@ export default function Home() {
               <div className="h-0.5 w-11 bg-gradient-to-r from-teal-l to-blue-m mb-8" />
 
               {/* stats row */}
-              <div className="flex gap-8 flex-wrap">
+              <div className="flex gap-6">
                 {[
                   { n: '+15', l: 'Años en canal financiero' },
                   { n: '4',   l: 'Sectores estratégicos' },
@@ -183,8 +183,8 @@ export default function Home() {
                   { n: 'Nac.',l: 'Cobertura en campo' },
                 ].map(({ n, l }) => (
                   <div key={l}>
-                    <div className="font-serif text-3xl leading-none bg-gradient-to-r from-teal-l via-teal to-blue-m bg-clip-text text-transparent">{n}</div>
-                    <div className="text-[11px] font-light text-[#8896AA] mt-1">{l}</div>
+                    <div className="font-serif text-2xl leading-none bg-gradient-to-r from-teal-l via-teal to-blue-m bg-clip-text text-transparent">{n}</div>
+                    <div className="text-[10px] font-light text-[#8896AA] mt-1 whitespace-nowrap">{l}</div>
                   </div>
                 ))}
               </div>
