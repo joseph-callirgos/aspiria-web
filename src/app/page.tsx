@@ -122,7 +122,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#091340]/80 via-[#091340]/20 to-transparent" />
 
         {/* contenido anclado abajo-izquierda */}
-        <div className="absolute bottom-12 left-0 right-0 z-10 max-w-5xl mx-auto px-8">
+        <div className="absolute bottom-12 left-0 z-10 px-12 max-w-2xl">
           <span className="text-[11px] font-bold tracking-[.18em] uppercase text-teal block mb-4">
             Alianzas Comerciales · B2B · Perú
           </span>
