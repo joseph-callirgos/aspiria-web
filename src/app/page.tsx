@@ -163,47 +163,49 @@ export default function Home() {
       {/* ── EL PROBLEMA ── */}
       <section className="bg-off py-24">
         <div className="px-12">
+          <div className="flex gap-16 items-start">
 
-          {/* top: stat block */}
-          <div className="mb-16">
-            <span className="text-[11px] font-bold tracking-[.18em] uppercase text-teal block mb-4">El problema</span>
-            <div className="flex items-end gap-10 flex-wrap">
-              <div className="font-serif text-[clamp(72px,10vw,112px)] leading-[.9] bg-gradient-to-r from-teal-l via-teal to-blue-m bg-clip-text text-transparent">70%</div>
-              <p className="text-lg font-medium text-navy leading-tight max-w-xs mb-2">
+            {/* left: stat block */}
+            <div className="w-[42%] shrink-0">
+              <span className="text-[11px] font-bold tracking-[.18em] uppercase text-teal block mb-4">El problema</span>
+              <div className="font-serif text-[clamp(72px,10vw,112px)] leading-[.9] bg-gradient-to-r from-teal-l via-teal to-blue-m bg-clip-text text-transparent mb-5">70%</div>
+              <p className="text-lg font-medium text-navy leading-tight max-w-xs mb-6">
                 de los acuerdos comerciales firmados nunca se ejecutan correctamente en el punto de venta.
               </p>
+              <div className="h-0.5 w-11 bg-gradient-to-r from-teal-l to-blue-m mb-8" />
+              <div className="flex gap-6">
+                {[
+                  { n: '+15', l: 'Años en canal financiero' },
+                  { n: '4',   l: 'Sectores estratégicos' },
+                  { n: '100%',l: 'Trazabilidad operativa' },
+                  { n: 'Nac.',l: 'Cobertura en campo' },
+                ].map(({ n, l }) => (
+                  <div key={l}>
+                    <div className="font-serif text-2xl leading-none bg-gradient-to-r from-teal-l via-teal to-blue-m bg-clip-text text-transparent">{n}</div>
+                    <div className="text-[10px] font-light text-[#8896AA] mt-1 whitespace-nowrap">{l}</div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="h-0.5 w-11 bg-gradient-to-r from-teal-l to-blue-m mt-6 mb-8" />
-            <div className="flex gap-6">
+
+            {/* right: pain points stacked vertically */}
+            <div className="flex-1 flex flex-col gap-5">
               {[
-                { n: '+15', l: 'Años en canal financiero' },
-                { n: '4',   l: 'Sectores estratégicos' },
-                { n: '100%',l: 'Trazabilidad operativa' },
-                { n: 'Nac.',l: 'Cobertura en campo' },
-              ].map(({ n, l }) => (
-                <div key={l}>
-                  <div className="font-serif text-2xl leading-none bg-gradient-to-r from-teal-l via-teal to-blue-m bg-clip-text text-transparent">{n}</div>
-                  <div className="text-[10px] font-light text-[#8896AA] mt-1 whitespace-nowrap">{l}</div>
+                { icon: '📍', title: 'Sin visibilidad de campo', desc: 'No se sabe qué ejecutivo visitó, cuándo ni qué encontró en el PDV.' },
+                { icon: '📊', title: 'Sin métricas accionables', desc: 'Reportes manuales, tardíos y sin cruce entre cobertura y resultado.' },
+                { icon: '🔄', title: 'Sin escalabilidad', desc: 'La ejecución depende de la persona, no del sistema.' },
+              ].map(({ icon, title, desc }) => (
+                <div key={title} className="bg-white border border-[#E2E8F2] rounded-lg p-6 flex gap-4 items-start">
+                  <div className="w-9 h-9 rounded-sm bg-[#F5F7FA] border border-[#E2E8F2] flex items-center justify-center text-base shrink-0">{icon}</div>
+                  <div>
+                    <strong className="block text-sm font-semibold text-navy mb-1">{title}</strong>
+                    <span className="text-sm font-light text-[#4A5568] leading-relaxed">{desc}</span>
+                  </div>
                 </div>
               ))}
             </div>
-          </div>
 
-          {/* bottom: pain points — right half */}
-          <div className="grid grid-cols-3 gap-6 ml-auto max-w-[58%]">
-            {[
-              { icon: '📍', title: 'Sin visibilidad de campo', desc: 'No se sabe qué ejecutivo visitó, cuándo ni qué encontró en el PDV.' },
-              { icon: '📊', title: 'Sin métricas accionables', desc: 'Reportes manuales, tardíos y sin cruce entre cobertura y resultado.' },
-              { icon: '🔄', title: 'Sin escalabilidad', desc: 'La ejecución depende de la persona, no del sistema.' },
-            ].map(({ icon, title, desc }) => (
-              <div key={title} className="bg-white border border-[#E2E8F2] rounded-lg p-6">
-                <div className="w-9 h-9 rounded-sm bg-[#F5F7FA] border border-[#E2E8F2] flex items-center justify-center text-base mb-4">{icon}</div>
-                <strong className="block text-sm font-semibold text-navy mb-1.5">{title}</strong>
-                <span className="text-sm font-light text-[#4A5568] leading-relaxed">{desc}</span>
-              </div>
-            ))}
           </div>
-
         </div>
       </section>
 
