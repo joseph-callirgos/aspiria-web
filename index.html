@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ASPIRIA — Capacitación, señalización y gestión de Alianzas para programas de beneficios. Operador comercial B2B especializado en Perú.">
+  <title>ASPIRIA — Alianzas Comerciales</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ═══════════════ NAVBAR ═══════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="#inicio" class="navbar__logo">
+        <img src="assets/logo.webp" alt="ASPIRIA">
+      </a>
+      <ul class="navbar__links">
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#faq">Preguntas frecuentes</a></li>
+        <li><a href="#blog">Blog de valor</a></li>
+      </ul>
+      <a href="#contacto" class="navbar__cta">CONTÁCTANOS</a>
+      <button class="navbar__hamburger" id="hamburger" aria-label="Menú">☰</button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#nosotros"  onclick="closeMobile()">Nosotros</a>
+    <a href="#servicios" onclick="closeMobile()">Servicios</a>
+    <a href="#faq"       onclick="closeMobile()">Preguntas frecuentes</a>
+    <a href="#blog"      onclick="closeMobile()">Blog de valor</a>
+    <a href="#contacto"  class="mobile-menu__cta" onclick="closeMobile()">CONTÁCTANOS</a>
+  </div>
+
+
+  <!-- ═══════════════ S1 — HERO ═══════════════ -->
+  <section class="hero" id="inicio">
+    <video class="hero__video" autoplay muted loop playsinline>
+      <source src="video/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero__overlay"></div>
+
+    <div class="hero__content container">
+      <div class="hero__left">
+        <span class="eyebrow eyebrow--light hero__eyebrow">ALIANZAS COMERCIALES</span>
+        <h1 class="hero__h1">
+          Capacitación, señalización y gestión de
+          <em>Alianzas</em>
+          para programas de beneficios
+        </h1>
+        <p class="hero__sub">
+          En ASPIRIA, optimizamos la experiencia en el punto de venta
+          a través de capacitaciones especializadas y señalización estratégica.
+        </p>
+        <div class="hero__btns">
+          <a href="#contacto" class="btn btn--primary">Conversemos →</a>
+          <a href="#servicios" class="btn btn--outline">Ver servicios</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ S2 — EL PROBLEMA ═══════════════ -->
+  <section class="section section--white" id="nosotros">
+    <div class="container">
+      <div class="problema__grid">
+
+        <div class="reveal">
+          <span class="eyebrow eyebrow--light">EL CONTEXTO</span>
+          <div class="problema__stat">70%</div>
+          <p class="problema__caption">
+            de las alianzas comerciales no se ejecutan correctamente en campo
+          </p>
+          <p>
+            Firmar un convenio es solo el inicio. Sin capacitación, señalización
+            y seguimiento activo, las alianzas mueren en papel. ASPIRIA convierte
+            esas alianzas en resultados medibles.
+          </p>
+        </div>
+
+        <div>
+          <div class="pain-card glass-white reveal">
+            <div class="pain-card__num">01</div>
+            <div class="pain-card__title">Afiliación sin seguimiento</div>
+            <p class="pain-card__desc">
+              Las alianzas se firman pero nadie las activa ni mide su desempeño en campo.
+            </p>
+            <div class="pain-card__divider"></div>
+          </div>
+
+          <div class="pain-card glass-white reveal">
+            <div class="pain-card__num">02</div>
+            <div class="pain-card__title">Equipo sin discurso comercial</div>
+            <p class="pain-card__desc">
+              Los ejecutivos visitan el PDV pero no convierten ni reportan resultados medibles.
+            </p>
+            <div class="pain-card__divider"></div>
+          </div>
+
+          <div class="pain-card glass-white reveal">
+            <div class="pain-card__num">03</div>
+            <div class="pain-card__title">Señalización desactualizada</div>
+            <p class="pain-card__desc">
+              El material POP llega tarde, mal colocado o sin auditoría fotográfica.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ S3 — VERDAD INCÓMODA ═══════════════ -->
+  <section class="section section--navy">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="eyebrow eyebrow--dark">DIAGNÓSTICO</span>
+        <h2 class="section__h2 section__h2--light">Firmar no es <em>ejecutar</em></h2>
+      </div>
+
+      <div class="verdad__grid">
+        <div class="glass-navy verdad-card verdad-card--sin reveal">
+          <div class="verdad-card__label">Sin ASPIRIA</div>
+          <ul class="verdad-card__list">
+            <li>Afiliaciones que no se activan</li>
+            <li>Equipo sin métricas claras</li>
+            <li>Señalización sin auditoría</li>
+            <li>Reportes incompletos</li>
+          </ul>
+        </div>
+
+        <div class="glass-navy verdad-card verdad-card--que reveal">
+          <div class="verdad-card__label">Lo que hacemos</div>
+          <ul class="verdad-card__list">
+            <li>Ejecutamos el proceso comercial completo</li>
+            <li>Capacitamos y señalizamos el PDV</li>
+            <li>Gestionamos KAMs especializados</li>
+            <li>Documentamos cada visita</li>
+          </ul>
+        </div>
+
+        <div class="glass-navy verdad-card verdad-card--con reveal">
+          <div class="verdad-card__label">Con ASPIRIA</div>
+          <ul class="verdad-card__list">
+            <li>Alianzas activas y medibles</li>
+            <li>Cobertura nacional documentada</li>
+            <li>PDV señalizado y auditado</li>
+            <li>Reportes semanales al cliente</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ S4 — SERVICIOS ═══════════════ -->
+  <section class="section section--off" id="servicios">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="eyebrow eyebrow--light">NUESTROS SERVICIOS</span>
+        <h2 class="section__h2 section__h2--dark">Lo que <em>ejecutamos</em> por ti</h2>
+      </div>
+
+      <div class="servicios__grid">
+
+        <div class="glass-white servicio-card reveal">
+          <span class="servicio-card__num">01</span>
+          <h3 class="servicio-card__title">Capacitación y señalización del PDV</h3>
+          <ul class="servicio-card__list">
+            <li>Despliegue de capacitadores</li>
+            <li>Cobertura nacional</li>
+            <li>Control y reportes comerciales</li>
+            <li>Informes fotográficos</li>
+          </ul>
+        </div>
+
+        <div class="glass-white servicio-card reveal">
+          <span class="servicio-card__num">02</span>
+          <h3 class="servicio-card__title">Gestión de programas de beneficios</h3>
+          <ul class="servicio-card__list">
+            <li>Gestión de equipo comercial – KAM</li>
+            <li>Proceso comercial completo</li>
+            <li>Gestión de campañas</li>
+            <li>Calidad de beneficios</li>
+          </ul>
+        </div>
+
+        <div class="glass-white servicio-card reveal">
+          <span class="servicio-card__num">03</span>
+          <h3 class="servicio-card__title">BTL, merchandising y POP</h3>
+          <ul class="servicio-card__list">
+            <li>Creación y despliegue de activaciones</li>
+            <li>Diseño y producción de material POP</li>
+            <li>Almacenamiento, distribución y señalización</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ S5 — NOS ENCARGAMOS DE TODO ═══════════════ -->
+  <section class="section section--navy">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="eyebrow eyebrow--dark">COBERTURA COMPLETA</span>
+        <h2 class="section__h2 section__h2--light">Nos encargamos de <em>todo</em></h2>
+      </div>
+
+      <div class="features__grid">
+
+        <div class="glass-navy feature-card reveal">
+          <div class="feature-card__num">01</div>
+          <div class="feature-card__title">Gestión de beneficios</div>
+          <p class="feature-card__desc">Gestión de promociones y campañas</p>
+        </div>
+
+        <div class="glass-navy feature-card reveal">
+          <div class="feature-card__num">02</div>
+          <div class="feature-card__title">Capacitación</div>
+          <p class="feature-card__desc">Cobertura y señalización en punto de venta</p>
+        </div>
+
+        <div class="glass-navy feature-card reveal">
+          <div class="feature-card__num">03</div>
+          <div class="feature-card__title">Seguimiento</div>
+          <p class="feature-card__desc">Seguimiento comercial especializado</p>
+        </div>
+
+        <div class="glass-navy feature-card reveal">
+          <div class="feature-card__num">04</div>
+          <div class="feature-card__title">Soluciones</div>
+          <p class="feature-card__desc">Incidencias y preguntas frecuentes</p>
+        </div>
+
+        <div class="glass-navy feature-card reveal">
+          <div class="feature-card__num">05</div>
+          <div class="feature-card__title">Análisis comercial</div>
+          <p class="feature-card__desc">Presentación de resultados y estrategias</p>
+        </div>
+
+        <div class="glass-navy feature-card reveal">
+          <div class="feature-card__num">06</div>
+          <div class="feature-card__title">Investigación</div>
+          <p class="feature-card__desc">Investigación de mercado y benchmarking</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ S6 — MATERIALES ═══════════════ -->
+  <section class="section section--white">
+    <div class="container">
+      <div class="materiales__grid">
+
+        <div class="reveal">
+          <span class="eyebrow eyebrow--light">MATERIALES</span>
+          <h2 class="section__h2 section__h2--dark">
+            Comunicamos tu marca en cada <em>punto de contacto</em>
+          </h2>
+          <p style="margin-top:20px;">
+            Diseñamos y producimos cada pieza que necesitas para activar
+            y comunicar tu programa de beneficios, desde catálogos físicos
+            hasta soluciones digitales con IA.
+          </p>
+        </div>
+
+        <ul class="materiales__list reveal">
+          <li class="materiales__item">
+            <span class="materiales__item-num">01</span>
+            <div class="materiales__item-body">
+              <div class="materiales__item-title">Diseño de piezas gráficas</div>
+              <p class="materiales__item-desc">
+                Material POP, señalética y piezas digitales alineadas
+                al manual de marca de cada aliado.
+              </p>
+            </div>
+          </li>
+          <li class="materiales__item">
+            <span class="materiales__item-num">02</span>
+            <div class="materiales__item-body">
+              <div class="materiales__item-title">Catálogos promocionales</div>
+              <p class="materiales__item-desc">
+                Catálogos físicos y digitales con las ofertas del programa,
+                actualizados por campaña.
+              </p>
+            </div>
+          </li>
+          <li class="materiales__item">
+            <span class="materiales__item-num">03</span>
+            <div class="materiales__item-body">
+              <div class="materiales__item-title">Chatbot AI</div>
+              <p class="materiales__item-desc">
+                Asistente conversacional 24/7 para resolución de consultas
+                de participantes y comercios aliados.
+              </p>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ S7 — ALIADOS ESTRATÉGICOS ═══════════════ -->
+  <section class="section section--off">
+    <div class="container">
+      <div class="aliados reveal">
+        <span class="eyebrow eyebrow--light">SECTORES</span>
+        <h2 class="section__h2 section__h2--dark">
+          Trabajamos con aliados en <em>todos los sectores</em>
+        </h2>
+        <p style="margin-top:16px; font-size:16px; color:var(--body-color);">
+          Activamos y gestionamos programas de beneficios en los sectores
+          más relevantes del mercado.
+        </p>
+        <div class="aliados__pills">
+          <span class="pill">Tecnología</span>
+          <span class="pill">Moda</span>
+          <span class="pill">Viajes</span>
+          <span class="pill">Gastronomía</span>
+          <span class="pill">Educación</span>
+          <span class="pill">Y muchas más</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ S8 — FAQ ═══════════════ -->
+  <section class="section section--navy" id="faq">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="eyebrow eyebrow--dark">FAQ</span>
+        <h2 class="section__h2 section__h2--light">Preguntas <em>frecuentes</em></h2>
+      </div>
+
+      <div class="faq__wrap">
+
+        <div class="glass-navy faq-item reveal">
+          <button class="faq-item__trigger" aria-expanded="false">
+            <span class="faq-item__question">¿Para quién es un programa de beneficios o alianzas?</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__body">
+            <p class="faq-item__answer">
+              Un programa de beneficios o alianzas es ideal para cualquier empresa que busque
+              fortalecer sus productos o servicios mediante un paquete de beneficios
+              proporcionados por comercios aliados.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass-navy faq-item reveal">
+          <button class="faq-item__trigger" aria-expanded="false">
+            <span class="faq-item__question">¿Cómo funciona un programa de beneficios o alianzas comerciales?</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__body">
+            <p class="faq-item__answer">
+              Un programa de beneficios opera mediante la asociación estratégica con comercios
+              y la creación de paquetes de beneficios exclusivos para los participantes del programa.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass-navy faq-item reveal">
+          <button class="faq-item__trigger" aria-expanded="false">
+            <span class="faq-item__question">¿Cómo se trabaja en el día a día el programa de beneficios?</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__body">
+            <p class="faq-item__answer">
+              En el día a día, el programa implica la gestión continua de las alianzas comerciales,
+              asegurando la comunicación efectiva, el seguimiento de resultados y la optimización
+              constante para generar valor a los participantes.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass-navy faq-item reveal">
+          <button class="faq-item__trigger" aria-expanded="false">
+            <span class="faq-item__question">¿Cómo funcionan mejor las alianzas o programas de beneficios?</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__body">
+            <p class="faq-item__answer">
+              Las alianzas prosperan cuando hay una comprensión profunda de las necesidades
+              de los participantes, colaboración estrecha con los comercios aliados, y una
+              oferta personalizada y adaptable al mercado.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass-navy faq-item reveal">
+          <button class="faq-item__trigger" aria-expanded="false">
+            <span class="faq-item__question">¿Cuáles son los beneficios tangibles de participar en un programa de alianzas comerciales?</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__body">
+            <p class="faq-item__answer">
+              Acceso a descuentos exclusivos, promociones especiales, fortalecimiento de marca
+              mediante alianzas estratégicas, y mejora de la lealtad de clientes y colaboradores.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass-navy faq-item reveal">
+          <button class="faq-item__trigger" aria-expanded="false">
+            <span class="faq-item__question">¿Cómo se evalúa el éxito de un programa de alianzas comerciales?</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__body">
+            <p class="faq-item__answer">
+              El éxito se evalúa mediante KPIs como el crecimiento en la participación,
+              incremento en ventas, satisfacción del cliente y retención, usando herramientas
+              de CRM e inteligencia artificial.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass-navy faq-item reveal">
+          <button class="faq-item__trigger" aria-expanded="false">
+            <span class="faq-item__question">¿Cuáles son los criterios para seleccionar comercios aliados?</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__body">
+            <p class="faq-item__answer">
+              La selección se basa en la relevancia para el público objetivo, la calidad de sus
+              productos o servicios, su reputación, capacidad de ofrecer beneficios exclusivos
+              y alineación con los valores de la empresa.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass-navy faq-item reveal">
+          <button class="faq-item__trigger" aria-expanded="false">
+            <span class="faq-item__question">¿Cómo se mide la satisfacción de los participantes?</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__body">
+            <p class="faq-item__answer">
+              A través de encuestas periódicas, retroalimentación directa, análisis de la
+              participación en los beneficios y evaluación de los niveles de engagement y retención.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass-navy faq-item reveal">
+          <button class="faq-item__trigger" aria-expanded="false">
+            <span class="faq-item__question">¿Cómo se adapta un programa de alianzas a las tendencias del mercado?</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__body">
+            <p class="faq-item__answer">
+              La adaptabilidad se logra mediante la monitorización constante del mercado,
+              la identificación de nuevas tendencias y el ajuste rápido de las ofertas y
+              alianzas para mantenerse relevante.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ S9 — CONTACTO ═══════════════ -->
+  <section class="section section--navy-deep" id="contacto">
+    <div class="container">
+      <div class="contacto reveal">
+        <div class="contacto__inner">
+          <span class="eyebrow eyebrow--dark">CONVERSEMOS</span>
+          <h2 class="contacto__h2">Hagamos que tus alianzas <em>funcionen</em></h2>
+          <p class="contacto__sub">Cuéntanos tu proyecto. Te respondemos en menos de 24 horas.</p>
+
+          <form class="glass-navy contacto__form" id="contactForm" novalidate>
+            <input class="form-field" type="text"  name="nombre"    placeholder="Nombre y Apellidos"    required>
+            <input class="form-field" type="email" name="email"     placeholder="Correo electrónico"   required>
+            <input class="form-field" type="text"  name="tema"      placeholder="Tema o requerimiento" required>
+            <input class="form-field" type="text"  name="fecha"     placeholder="Fecha y hora tentativa">
+            <button class="form-submit" type="submit" id="submitBtn">Enviar Mensaje →</button>
+          </form>
+
+          <a href="mailto:corporativo@aspiriateam.com" class="contacto__email">
+            corporativo@aspiriateam.com
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__main">
+        <a href="#inicio" class="footer__logo">
+          <img src="assets/logo.webp" alt="ASPIRIA">
+        </a>
+        <ul class="footer__links">
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+          <li><a href="#blog">Blog de valor</a></li>
+        </ul>
+        <div class="footer__contact">
+          <a href="mailto:corporativo@aspiriateam.com" class="footer__email">
+            corporativo@aspiriateam.com
+          </a>
+          <a href="https://linkedin.com/company/aspiriateam" target="_blank" class="footer__linkedin">
+            LinkedIn →
+          </a>
+        </div>
+      </div>
+      <div class="footer__copy">
+        © 2026 ASPIRIA TEAM · www.aspiriateam.com · Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
