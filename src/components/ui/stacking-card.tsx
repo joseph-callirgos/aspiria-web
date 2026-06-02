@@ -1,5 +1,4 @@
 'use client';
-import { ReactLenis } from 'lenis/react';
 import { useTransform, motion, useScroll, MotionValue } from 'motion/react';
 import { useRef } from 'react';
 import {
@@ -112,8 +111,7 @@ export default function StackingCards({ services }: { services: ServiceData[] })
   });
 
   return (
-    <ReactLenis>
-      <div ref={container}>
+    <div ref={container}>
         {services.map((service, i) => {
           const targetScale = 1 - (services.length - i) * 0.04;
           return (
@@ -127,7 +125,6 @@ export default function StackingCards({ services }: { services: ServiceData[] })
             />
           );
         })}
-      </div>
-    </ReactLenis>
+    </div>
   );
 }
