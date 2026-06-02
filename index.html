@@ -1,533 +1,477 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ASPIRIA — Capacitación, señalización y gestión de Alianzas para programas de beneficios. Operador comercial B2B especializado en Perú.">
-  <title>ASPIRIA — Alianzas Comerciales</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASPIRIA — Plataforma Comercial B2B</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+/* ── RESET ── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:#fff;color:#0a0a14;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* ── TOKENS ── */
+:root{
+  --navy:#0D1B4B;--navy-d:#091340;--navy-c:#162050;
+  --teal:#00C4AA;--teal-l:#00D4B4;--blue:#2B80D4;
+  --off:#F5F7FA;--border:#E2E8F2;--body:#4A5568;--muted:#8896AA;
+  --grad:linear-gradient(135deg,#00D4B4 0%,#00C4AA 45%,#2B80D4 100%)
+}
+
+/* ── LAYOUT ── */
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.sec{padding:72px 0}
+.sec-sm{padding:48px 0}
+
+/* ── TYPE ── */
+.serif{font-family:'Instrument Serif',Georgia,serif}
+.eye{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:14px}
+.eye-w{color:rgba(255,255,255,.5)}
+.h2{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(24px,4vw,40px);font-weight:400;color:var(--navy);line-height:1.2;letter-spacing:-.02em}
+.h2 em{font-style:italic;color:var(--teal)}
+.sub{font-size:16px;font-weight:300;color:var(--body);max-width:480px;margin:10px auto 0;line-height:1.7}
+.sec-head{text-align:center;margin-bottom:48px}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,19,64,.97);border-bottom:1px solid rgba(255,255,255,.06);padding:0 20px;height:58px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
+.nav-logo svg{height:26px;width:auto;flex-shrink:0}
+.nav-word{font-weight:700;font-size:18px;color:#fff;letter-spacing:-.01em}
+.nav-links{display:flex;gap:24px;list-style:none;align-items:center}
+.nav-links a{font-size:13px;color:rgba(255,255,255,.55);text-decoration:none}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:var(--teal);color:var(--navy-d);font-size:13px;font-weight:700;padding:8px 18px;border-radius:3px;text-decoration:none;white-space:nowrap}
+@media(max-width:640px){.nav-links{display:none}}
+
+/* ── HERO ── */
+#hero{background:var(--navy-d);padding:130px 0 88px;position:relative;overflow:hidden}
+#hero::before{content:'';position:absolute;top:-100px;right:-60px;width:480px;height:480px;background:radial-gradient(circle,rgba(0,196,170,.1) 0%,transparent 70%);pointer-events:none}
+#hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(43,128,212,.08) 0%,transparent 70%);pointer-events:none}
+.hero-inner{position:relative;z-index:1}
+.hero-h1{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(30px,5vw,56px);font-weight:400;color:#fff;line-height:1.1;max-width:680px;margin-bottom:20px;letter-spacing:-.02em}
+.hero-h1 em{font-style:italic;color:var(--teal-l)}
+.hero-p{font-size:clamp(14px,1.8vw,17px);font-weight:300;color:rgba(255,255,255,.6);max-width:500px;margin-bottom:36px;line-height:1.7}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-p{background:var(--grad);color:#fff;font-weight:700;font-size:14px;padding:13px 28px;border-radius:3px;text-decoration:none;display:inline-block;white-space:nowrap}
+.btn-g{border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7);font-size:14px;font-weight:500;padding:13px 28px;border-radius:3px;text-decoration:none;display:inline-block;white-space:nowrap}
+.hero-stats{display:flex;gap:36px;flex-wrap:wrap;margin-top:56px;padding-top:36px;border-top:1px solid rgba(255,255,255,.08)}
+.hero-stat-n{font-family:'Instrument Serif',Georgia,serif;font-size:34px;line-height:1;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-stat-l{font-size:12px;font-weight:300;color:rgba(255,255,255,.4);margin-top:3px}
+
+/* ── PROBLEMA ── */
+#problema{background:var(--off);padding:72px 0}
+.prob-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+@media(max-width:680px){.prob-grid{grid-template-columns:1fr;gap:32px}}
+.stat-big{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(64px,12vw,112px);line-height:.9;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:14px}
+.stat-cap{font-size:17px;font-weight:500;color:var(--navy);line-height:1.4;max-width:300px}
+.pain-list{list-style:none;display:flex;flex-direction:column;gap:18px}
+.pain-item{display:flex;gap:14px;align-items:flex-start}
+.pain-ico{width:34px;height:34px;border-radius:3px;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px}
+.pain-item strong{display:block;font-size:14px;font-weight:600;color:var(--navy);margin-bottom:2px}
+.pain-item span{font-size:13px;font-weight:300;color:var(--body)}
+.grad-line{height:2px;background:var(--grad);width:44px;border:none;margin-top:20px}
+
+/* ── SERVICIOS ── */
+#servicios{background:#fff}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:760px){.svc-grid{grid-template-columns:1fr;gap:14px}}
+.svc-card{border:1px solid var(--border);border-radius:4px;padding:32px 24px;position:relative;overflow:hidden;transition:border-color .2s,transform .2s}
+.svc-card:hover{border-color:var(--teal);transform:translateY(-2px)}
+.svc-n{font-family:'Instrument Serif',Georgia,serif;font-size:52px;line-height:1;color:#ECF0F6;display:block;margin-bottom:2px}
+.svc-name{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px}
+.svc-desc{font-size:13px;font-weight:300;color:var(--body);line-height:1.65}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.pill{font-size:11px;font-weight:700;color:var(--teal);background:rgba(0,196,170,.08);border:1px solid rgba(0,196,170,.2);padding:3px 10px;border-radius:20px;letter-spacing:.04em}
+
+/* ── ECOSISTEMA ── */
+#ecosistema{background:var(--off)}
+.eco-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:760px){.eco-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:460px){.eco-grid{grid-template-columns:1fr}}
+.eco-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:24px 20px}
+.eco-num{font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--teal);margin-bottom:12px;display:block}
+.eco-ico{font-size:22px;margin-bottom:12px;display:block}
+.eco-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.eco-desc{font-size:12px;font-weight:300;color:var(--body);line-height:1.6}
+.proceso{display:flex;align-items:flex-start;gap:0;margin-top:48px;overflow-x:auto;padding-bottom:4px}
+.paso{flex:1;min-width:100px;text-align:center;position:relative}
+.paso:not(:last-child)::after{content:'';position:absolute;top:18px;left:50%;right:-50%;height:1px;background:linear-gradient(90deg,var(--teal),transparent)}
+.paso-dot{width:38px;height:38px;border-radius:50%;background:var(--navy);border:2px solid var(--teal);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:13px;font-weight:700;color:var(--teal);position:relative;z-index:1}
+.paso-l{font-size:12px;font-weight:700;color:var(--navy);line-height:1.3}
+.paso-s{font-size:11px;font-weight:300;color:var(--muted);margin-top:2px;line-height:1.3}
+
+/* ── POR QUÉ ASPIRIA ── */
+#tecnologia{background:var(--navy);padding:72px 0}
+.tech-h{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(24px,4vw,38px);color:#fff;font-weight:400;line-height:1.2;max-width:520px}
+.tech-h em{font-style:italic;color:var(--teal-l)}
+.tech-sub{font-size:15px;font-weight:300;color:rgba(255,255,255,.5);max-width:380px;margin-top:10px;line-height:1.7;margin-bottom:36px}
+.phase-grid{display:grid;grid-template-columns:repeat(4,1fr);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.06);border-radius:4px;overflow:hidden;margin-bottom:36px}
+@media(max-width:760px){.phase-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:460px){.phase-grid{grid-template-columns:1fr}}
+.phase{background:var(--navy-c);padding:24px 20px;border-right:1px solid rgba(255,255,255,.05)}
+.phase:last-child{border-right:none}
+@media(max-width:760px){.phase:nth-child(2){border-right:none}.phase:nth-child(3){border-top:1px solid rgba(255,255,255,.05)}.phase:nth-child(4){border-top:1px solid rgba(255,255,255,.05);border-right:none}}
+@media(max-width:460px){.phase{border-right:none;border-top:1px solid rgba(255,255,255,.05)}}
+.phase-num{font-size:10px;font-weight:700;letter-spacing:.18em;color:var(--teal);margin-bottom:12px;display:block}
+.phase-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:6px}
+.phase-desc{font-size:12px;font-weight:300;color:rgba(255,255,255,.4);line-height:1.6}
+.dif-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:760px){.dif-strip{grid-template-columns:1fr}}
+.dif{border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:22px 18px;display:flex;gap:14px;align-items:flex-start}
+.dif-ico{width:30px;height:30px;border-radius:3px;background:rgba(0,196,170,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.dif-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:4px}
+.dif-desc{font-size:12px;font-weight:300;color:rgba(255,255,255,.4);line-height:1.55}
+
+/* ── TRACK RECORD ── */
+#track{background:#fff}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:48px}
+@media(max-width:560px){.metrics{grid-template-columns:repeat(2,1fr)}}
+.metric{background:#fff;padding:32px 20px;text-align:center}
+.metric-v{font-family:'Instrument Serif',Georgia,serif;font-size:36px;line-height:1;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:6px}
+.metric-l{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:760px){.cases{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:460px){.cases{grid-template-columns:1fr}}
+.case{background:var(--off);border:1px solid var(--border);border-radius:4px;padding:20px 18px}
+.case-sector{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:block}
+.case-client{font-family:'Instrument Serif',Georgia,serif;font-size:17px;color:var(--navy);margin-bottom:6px;display:block}
+.case-desc{font-size:12px;font-weight:300;color:var(--body);line-height:1.6}
+
+/* ── SECTORES ── */
+#sectores{background:var(--off);padding:48px 0}
+.sector-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.sector{display:flex;align-items:center;gap:8px;border:1px solid var(--border);border-radius:3px;padding:13px 20px;font-size:13px;font-weight:600;color:var(--navy);background:#fff}
+
+/* ── CTA ── */
+#cta{background:var(--navy-d);padding:88px 0;text-align:center;position:relative;overflow:hidden}
+#cta::before{content:'';position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(0,196,170,.07) 0%,transparent 70%);pointer-events:none}
+.cta-inner{position:relative;z-index:1;max-width:600px;margin:0 auto}
+.cta-h{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(26px,4.5vw,46px);color:#fff;font-weight:400;line-height:1.15;margin-bottom:14px}
+.cta-h em{font-style:italic;color:var(--teal-l)}
+.cta-p{font-size:15px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:36px}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.contacts{display:flex;flex-direction:column;gap:20px;padding-top:36px;border-top:1px solid rgba(255,255,255,.08)}
+.contact-row{display:flex;gap:28px;justify-content:center;flex-wrap:wrap}
+.ci{display:flex;flex-direction:column;align-items:center;gap:3px}
+.ci-l{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.ci-v{font-size:13px;color:rgba(255,255,255,.75);text-decoration:none}
+.ci-v:hover{color:var(--teal)}
+.contact-divider{height:1px;background:rgba(255,255,255,.05);width:100%}
+
+/* ── FOOTER ── */
+footer{background:#060d28;padding:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.foot-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+.foot-logo svg{height:22px;width:auto}
+.foot-word{font-weight:700;font-size:15px;color:rgba(255,255,255,.4);letter-spacing:-.01em}
+.foot-note{font-size:11px;color:rgba(255,255,255,.2)}
+</style>
 </head>
 <body>
 
-  <!-- ═══════════════ NAVBAR ═══════════════ -->
-  <nav class="navbar" id="navbar">
-    <div class="container navbar__inner">
-      <a href="#inicio" class="navbar__logo">
-        <img src="assets/logo.webp" alt="ASPIRIA">
-      </a>
-      <ul class="navbar__links">
-        <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#faq">Preguntas frecuentes</a></li>
-        <li><a href="#blog">Blog de valor</a></li>
-      </ul>
-      <a href="#contacto" class="navbar__cta">CONTÁCTANOS</a>
-      <button class="navbar__hamburger" id="hamburger" aria-label="Menú">☰</button>
-    </div>
-  </nav>
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#hero">
+    <img src="assets/logo.webp" alt="ASPIRIA" style="height:28px;width:auto;filter:brightness(0) invert(1);">
+    <span class="nav-word">ASPIRIA</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#tecnologia">Tecnología</a></li>
+    <li><a href="#track">Experiencia</a></li>
+  </ul>
+  <a href="#cta" class="nav-cta">Hablemos</a>
+</nav>
 
-  <!-- Mobile menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#nosotros"  onclick="closeMobile()">Nosotros</a>
-    <a href="#servicios" onclick="closeMobile()">Servicios</a>
-    <a href="#faq"       onclick="closeMobile()">Preguntas frecuentes</a>
-    <a href="#blog"      onclick="closeMobile()">Blog de valor</a>
-    <a href="#contacto"  class="mobile-menu__cta" onclick="closeMobile()">CONTÁCTANOS</a>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap hero-inner">
+    <h1 class="hero-h1">Ejecutamos, medimos<br>y <em>documentamos</em><br>tu operación comercial.</h1>
+    <p class="hero-p">Gestión de alianzas, impulso de medios de pago y trade marketing con trazabilidad completa en campo.</p>
+    <div class="hero-btns">
+      <a href="#cta" class="btn-p">Solicitar propuesta</a>
+      <a href="#ecosistema" class="btn-g">Ver ecosistema →</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hero-stat-n">+15</div><div class="hero-stat-l">Años en canal financiero</div></div>
+      <div><div class="hero-stat-n">4</div><div class="hero-stat-l">Sectores estratégicos</div></div>
+      <div><div class="hero-stat-n">100%</div><div class="hero-stat-l">Trazabilidad operativa</div></div>
+      <div><div class="hero-stat-n">Nacional</div><div class="hero-stat-l">Cobertura en campo</div></div>
+    </div>
   </div>
+</section>
 
 
-  <!-- ═══════════════ S1 — HERO ═══════════════ -->
-  <section class="hero" id="inicio">
-    <video class="hero__video" autoplay muted loop playsinline>
-      <source src="video/hero.mp4" type="video/mp4">
-    </video>
-    <div class="hero__overlay"></div>
+<!-- PROBLEMA -->
+<section id="problema">
+  <div class="wrap">
+    <div class="prob-grid">
+      <div>
+        <span class="eye">El problema</span>
+        <span class="stat-big">70%</span>
+        <p class="stat-cap">de los acuerdos comerciales firmados nunca se ejecutan correctamente en el punto de venta.</p>
+        <hr class="grad-line">
+      </div>
+      <ul class="pain-list">
+        <li class="pain-item">
+          <div class="pain-ico">📍</div>
+          <div><strong>Sin visibilidad de campo</strong><span>No se sabe qué ejecutivo visitó, cuándo ni qué encontró en el PDV.</span></div>
+        </li>
+        <li class="pain-item">
+          <div class="pain-ico">📊</div>
+          <div><strong>Sin métricas accionables</strong><span>Reportes manuales, tardíos y sin cruce entre cobertura y resultado.</span></div>
+        </li>
+        <li class="pain-item">
+          <div class="pain-ico">🔄</div>
+          <div><strong>Sin escalabilidad</strong><span>La ejecución depende de la persona, no del sistema.</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    <div class="hero__content container">
-      <div class="hero__left">
-        <span class="eyebrow eyebrow--light hero__eyebrow">ALIANZAS COMERCIALES</span>
-        <h1 class="hero__h1">
-          Capacitación, señalización y gestión de
-          <em>Alianzas</em>
-          para programas de beneficios
-        </h1>
-        <p class="hero__sub">
-          En ASPIRIA, optimizamos la experiencia en el punto de venta
-          a través de capacitaciones especializadas y señalización estratégica.
-        </p>
-        <div class="hero__btns">
-          <a href="#contacto" class="btn btn--primary">Conversemos →</a>
-          <a href="#servicios" class="btn btn--outline">Ver servicios</a>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eye">Lo que hacemos</span>
+      <h2 class="h2">Tres servicios.<br>Una <em>operación integrada.</em></h2>
+      <p class="sub">Cada servicio está diseñado para medir, documentar y escalar.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <span class="svc-n">01</span>
+        <div class="svc-name">Gestión de Alianzas y Cuentas Clave</div>
+        <p class="svc-desc">Afiliamos, mantenemos y hacemos crecer cuentas estratégicas. Gestionamos campañas de beneficios y convenios con modelo KAM: ejecutivo dedicado, ruta programada y reporte periódico de desempeño.</p>
+        <div class="pills"><span class="pill">KAM</span><span class="pill">Afiliaciones</span><span class="pill">Campañas</span><span class="pill">Convenios</span></div>
+      </div>
+      <div class="svc-card">
+        <span class="svc-n">02</span>
+        <div class="svc-name">Impulso de Medios de Pago</div>
+        <p class="svc-desc">Convertimos cada punto de venta en un embajador activo del producto financiero. Activación, seguimiento comercial y capacitación continua con equipo especializado en discurso de medios de pago.</p>
+        <div class="pills"><span class="pill">Activación PDV</span><span class="pill">Conversión</span><span class="pill">Embajadores</span></div>
+      </div>
+      <div class="svc-card">
+        <span class="svc-n">03</span>
+        <div class="svc-name">Trade Marketing</div>
+        <p class="svc-desc">Implementamos y auditamos la presencia de marca en canal. Gestión integral de señalización, material POP y capacitación en PDV, con validación fotográfica y trazabilidad completa por visita.</p>
+        <div class="pills"><span class="pill">Señalización</span><span class="pill">Material POP</span><span class="pill">Validación</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ECOSISTEMA -->
+<section id="ecosistema" class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eye">Ecosistema ASPIRIA</span>
+      <h2 class="h2">Tecnología que <em>cierra el ciclo</em><br>de la ejecución.</h2>
+      <p class="sub">Seis módulos integrados. Todo conectado. Todo trazable.</p>
+    </div>
+    <div class="eco-grid">
+      <div class="eco-card">
+        <span class="eco-ico">📱</span>
+        <span class="eco-num">01 · App móvil</span>
+        <div class="eco-title">Campo en tiempo real</div>
+        <p class="eco-desc">Progreso de base, cobertura y cumplimiento por ejecutivo. Reporte desde el celular al cerrar cada visita.</p>
+      </div>
+      <div class="eco-card">
+        <span class="eco-ico">🖥️</span>
+        <span class="eco-num">02 · Dashboard</span>
+        <div class="eco-title">Visibilidad ejecutiva</div>
+        <p class="eco-desc">KPIs por programa, cobertura de PDVs, incidencias y rendimiento por KAM y ejecutivo. Actualización en vivo.</p>
+      </div>
+      <div class="eco-card">
+        <span class="eco-ico">📅</span>
+        <span class="eco-num">03 · Calendario</span>
+        <div class="eco-title">Rutas sincronizadas</div>
+        <p class="eco-desc">Planificación diaria de visitas, reportadas en vivo por cada ejecutivo en campo. Sin papel.</p>
+      </div>
+      <div class="eco-card">
+        <span class="eco-ico">🗺️</span>
+        <span class="eco-num">04 · Mapa</span>
+        <div class="eco-title">Cobertura georreferenciada</div>
+        <p class="eco-desc">Visualización geográfica de rutas, PDV y zonas trabajadas por ejecutivo.</p>
+      </div>
+      <div class="eco-card">
+        <span class="eco-ico">📦</span>
+        <span class="eco-num">05 · Kardex</span>
+        <div class="eco-title">Control de materiales</div>
+        <p class="eco-desc">Catálogo visual de material POP con saldos, alertas e historial por PDV.</p>
+      </div>
+      <div class="eco-card">
+        <span class="eco-ico">📋</span>
+        <span class="eco-num">06 · Reportes</span>
+        <div class="eco-title">Exportables en un clic</div>
+        <p class="eco-desc">Búsquedas por ejecutivo, KAM, programa, distrito y estado. Exportación a Excel/PDF instantánea.</p>
+      </div>
+    </div>
+    <div class="proceso">
+      <div class="paso"><div class="paso-dot">1</div><div class="paso-l">Mapeamos</div><div class="paso-s">PDVs y cuentas</div></div>
+      <div class="paso"><div class="paso-dot">2</div><div class="paso-l">Ejecutamos</div><div class="paso-s">Con protocolo</div></div>
+      <div class="paso"><div class="paso-dot">3</div><div class="paso-l">Reportamos</div><div class="paso-s">Tiempo real</div></div>
+      <div class="paso"><div class="paso-dot">4</div><div class="paso-l">Medimos</div><div class="paso-s">KPIs y trazabilidad</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- POR QUÉ ASPIRIA -->
+<section id="tecnologia">
+  <div class="wrap">
+    <span class="eye eye-w">Por qué ASPIRIA</span>
+    <h2 class="tech-h">Lo que no se mide,<br><em>no se puede mejorar.</em></h2>
+    <p class="tech-sub">Operamos con un modelo de cuatro fases que convierte cada acuerdo comercial en resultados verificables.</p>
+    <div class="phase-grid">
+      <div class="phase">
+        <span class="phase-num">01 · Diagnóstico</span>
+        <div class="phase-title">Mapeamos la realidad</div>
+        <p class="phase-desc">Analizamos cuentas, PDVs y brechas de ejecución antes de proponer cualquier acción.</p>
+      </div>
+      <div class="phase">
+        <span class="phase-num">02 · Planificación</span>
+        <div class="phase-title">Diseñamos el modelo</div>
+        <p class="phase-desc">Rutas, frecuencias, KPIs y protocolos de visita definidos antes del arranque.</p>
+      </div>
+      <div class="phase">
+        <span class="phase-num">03 · Ejecución</span>
+        <div class="phase-title">Actuamos en campo</div>
+        <p class="phase-desc">Equipos KAM con protocolo, discurso y materiales. Cada visita documentada en tiempo real.</p>
+      </div>
+      <div class="phase">
+        <span class="phase-num">04 · Tecnología</span>
+        <div class="phase-title">Medimos y trazamos</div>
+        <p class="phase-desc">App, dashboard y reportes exportables. Foto, GPS y timestamp en cada cierre de visita.</p>
+      </div>
+    </div>
+    <div class="dif-strip">
+      <div class="dif">
+        <div class="dif-ico">👁️</div>
+        <div><div class="dif-title">Sin caja negra</div><p class="dif-desc">Visibilidad completa de la operación. Sin esperar el reporte del lunes.</p></div>
+      </div>
+      <div class="dif">
+        <div class="dif-ico">📋</div>
+        <div><div class="dif-title">Trazabilidad auditable</div><p class="dif-desc">Foto, GPS y timestamp por visita. Cada acuerdo ejecutado queda documentado.</p></div>
+      </div>
+      <div class="dif">
+        <div class="dif-ico">📊</div>
+        <div><div class="dif-title">Reportes accionables</div><p class="dif-desc">Cruzamos cobertura, KAM y resultado. Decidir con datos, no con intuición.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- TRACK RECORD -->
+<section id="track" class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eye">Experiencia de equipo</span>
+      <h2 class="h2">Probado en campo.<br><em>Medido en números.</em></h2>
+    </div>
+    <div class="metrics">
+      <div class="metric"><span class="metric-v">+15</span><span class="metric-l">Años en canal financiero</span></div>
+      <div class="metric"><span class="metric-v">4</span><span class="metric-l">Sectores estratégicos</span></div>
+      <div class="metric"><span class="metric-v">100%</span><span class="metric-l">Trazabilidad garantizada</span></div>
+      <div class="metric"><span class="metric-v">Nac.</span><span class="metric-l">Cobertura operativa</span></div>
+    </div>
+    <div class="cases">
+      <div class="case">
+        <span class="case-sector">Banca · Medios de pago</span>
+        <span class="case-client">Pagos sin intereses BBVA</span>
+        <p class="case-desc">Activación y conversión en PDV retail con equipo especializado en discurso financiero.</p>
+      </div>
+      <div class="case">
+        <span class="case-sector">Banca · Cuentas clave</span>
+        <span class="case-client">Mundo Sueldo BBVA</span>
+        <p class="case-desc">Gestión de afiliaciones, mantenimiento y crecimiento de cuentas nómina en canal.</p>
+      </div>
+      <div class="case">
+        <span class="case-sector">Banca · Digital</span>
+        <span class="case-client">App / Web Beneficios BBVA</span>
+        <p class="case-desc">Impulso de adopción digital y activación de beneficios en puntos de contacto físico.</p>
+      </div>
+      <div class="case">
+        <span class="case-sector">Banca · Fidelización</span>
+        <span class="case-client">Puntos BBVA</span>
+        <p class="case-desc">Capacitación en PDV y activación de programa de lealtad con seguimiento de adopción.</p>
+      </div>
+      <div class="case">
+        <span class="case-sector">Grupo BBVA · Financiamiento</span>
+        <span class="case-client">PowerPay Grupo BBVA</span>
+        <p class="case-desc">Cobertura nacional de PDVs, seguimiento comercial y reportería exportable por ejecutivo.</p>
+      </div>
+      <div class="case">
+        <span class="case-sector">Banca · Trade Marketing</span>
+        <span class="case-client">Scotiabank</span>
+        <p class="case-desc">Alianzas comerciales, señalización en canal y capacitación con trazabilidad documentada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SECTORES -->
+<section id="sectores">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:28px">
+      <span class="eye">Sectores</span>
+      <h2 class="h2" style="font-size:clamp(18px,3vw,26px)">Operamos donde el canal importa.</h2>
+    </div>
+    <div class="sector-row">
+      <div class="sector">🏦 Banca</div>
+      <div class="sector">💳 Medios de Pago</div>
+      <div class="sector">📡 Telecomunicaciones</div>
+      <div class="sector">🛒 Consumo Masivo</div>
+      <div class="sector">🏬 Retail</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section id="cta">
+  <div class="wrap">
+    <div class="cta-inner">
+      <span class="eye eye-w">¿Listo para empezar?</span>
+      <h2 class="cta-h">Tu operación merece<br><em>ser medida</em> correctamente.</h2>
+      <p class="cta-p">Hablemos de tu canal, tus PDVs y tus objetivos comerciales.<br>En 48 horas tienes una propuesta en tu correo.</p>
+      <div class="cta-btns">
+        <a href="mailto:luis.saenz@aspiriateam.com" class="btn-p">Solicitar propuesta</a>
+        <a href="https://wa.me/51937823606" class="btn-g" target="_blank">WhatsApp directo →</a>
+      </div>
+      <div class="contacts">
+        <div class="contact-row">
+          <div class="ci"><span class="ci-l">Socio</span><span class="ci-v" style="font-weight:600">Luis Sáenz</span></div>
+          <div class="ci"><span class="ci-l">Email</span><a href="mailto:luis.saenz@aspiriateam.com" class="ci-v">luis.saenz@aspiriateam.com</a></div>
+          <div class="ci"><span class="ci-l">Teléfono</span><a href="tel:+51937823606" class="ci-v">+51 937 823 606</a></div>
+        </div>
+        <div class="contact-divider"></div>
+        <div class="contact-row">
+          <div class="ci"><span class="ci-l">Socio</span><span class="ci-v" style="font-weight:600">Stefano Agurto</span></div>
+          <div class="ci"><span class="ci-l">Email</span><a href="mailto:stefano.agurto@aspiriateam.com" class="ci-v">stefano.agurto@aspiriateam.com</a></div>
+          <div class="ci"><span class="ci-l">Teléfono</span><a href="tel:+51958173556" class="ci-v">+51 958 173 556</a></div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 
-  <!-- ═══════════════ S2 — EL PROBLEMA ═══════════════ -->
-  <section class="section section--white" id="nosotros">
-    <div class="container">
-      <div class="problema__grid">
+<!-- FOOTER -->
+<footer>
+  <a class="foot-logo" href="#hero">
+    <img src="assets/logo.webp" alt="ASPIRIA" style="height:22px;width:auto;filter:brightness(0) invert(1);">
+    <span class="foot-word">ASPIRIA</span>
+  </a>
+  <span class="foot-note">© 2026 · Plataforma comercial B2B · Lima, Perú</span>
+</footer>
 
-        <div class="reveal">
-          <span class="eyebrow eyebrow--light">EL CONTEXTO</span>
-          <div class="problema__stat">70%</div>
-          <p class="problema__caption">
-            de las alianzas comerciales no se ejecutan correctamente en campo
-          </p>
-          <p>
-            Firmar un convenio es solo el inicio. Sin capacitación, señalización
-            y seguimiento activo, las alianzas mueren en papel. ASPIRIA convierte
-            esas alianzas en resultados medibles.
-          </p>
-        </div>
-
-        <div>
-          <div class="pain-card glass-white reveal">
-            <div class="pain-card__num">01</div>
-            <div class="pain-card__title">Afiliación sin seguimiento</div>
-            <p class="pain-card__desc">
-              Las alianzas se firman pero nadie las activa ni mide su desempeño en campo.
-            </p>
-            <div class="pain-card__divider"></div>
-          </div>
-
-          <div class="pain-card glass-white reveal">
-            <div class="pain-card__num">02</div>
-            <div class="pain-card__title">Equipo sin discurso comercial</div>
-            <p class="pain-card__desc">
-              Los ejecutivos visitan el PDV pero no convierten ni reportan resultados medibles.
-            </p>
-            <div class="pain-card__divider"></div>
-          </div>
-
-          <div class="pain-card glass-white reveal">
-            <div class="pain-card__num">03</div>
-            <div class="pain-card__title">Señalización desactualizada</div>
-            <p class="pain-card__desc">
-              El material POP llega tarde, mal colocado o sin auditoría fotográfica.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════ S3 — VERDAD INCÓMODA ═══════════════ -->
-  <section class="section section--navy">
-    <div class="container">
-      <div class="section__header reveal">
-        <span class="eyebrow eyebrow--dark">DIAGNÓSTICO</span>
-        <h2 class="section__h2 section__h2--light">Firmar no es <em>ejecutar</em></h2>
-      </div>
-
-      <div class="verdad__grid">
-        <div class="glass-navy verdad-card verdad-card--sin reveal">
-          <div class="verdad-card__label">Sin ASPIRIA</div>
-          <ul class="verdad-card__list">
-            <li>Afiliaciones que no se activan</li>
-            <li>Equipo sin métricas claras</li>
-            <li>Señalización sin auditoría</li>
-            <li>Reportes incompletos</li>
-          </ul>
-        </div>
-
-        <div class="glass-navy verdad-card verdad-card--que reveal">
-          <div class="verdad-card__label">Lo que hacemos</div>
-          <ul class="verdad-card__list">
-            <li>Ejecutamos el proceso comercial completo</li>
-            <li>Capacitamos y señalizamos el PDV</li>
-            <li>Gestionamos KAMs especializados</li>
-            <li>Documentamos cada visita</li>
-          </ul>
-        </div>
-
-        <div class="glass-navy verdad-card verdad-card--con reveal">
-          <div class="verdad-card__label">Con ASPIRIA</div>
-          <ul class="verdad-card__list">
-            <li>Alianzas activas y medibles</li>
-            <li>Cobertura nacional documentada</li>
-            <li>PDV señalizado y auditado</li>
-            <li>Reportes semanales al cliente</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════ S4 — SERVICIOS ═══════════════ -->
-  <section class="section section--off" id="servicios">
-    <div class="container">
-      <div class="section__header reveal">
-        <span class="eyebrow eyebrow--light">NUESTROS SERVICIOS</span>
-        <h2 class="section__h2 section__h2--dark">Lo que <em>ejecutamos</em> por ti</h2>
-      </div>
-
-      <div class="servicios__grid">
-
-        <div class="glass-white servicio-card reveal">
-          <span class="servicio-card__num">01</span>
-          <h3 class="servicio-card__title">Capacitación y señalización del PDV</h3>
-          <ul class="servicio-card__list">
-            <li>Despliegue de capacitadores</li>
-            <li>Cobertura nacional</li>
-            <li>Control y reportes comerciales</li>
-            <li>Informes fotográficos</li>
-          </ul>
-        </div>
-
-        <div class="glass-white servicio-card reveal">
-          <span class="servicio-card__num">02</span>
-          <h3 class="servicio-card__title">Gestión de programas de beneficios</h3>
-          <ul class="servicio-card__list">
-            <li>Gestión de equipo comercial – KAM</li>
-            <li>Proceso comercial completo</li>
-            <li>Gestión de campañas</li>
-            <li>Calidad de beneficios</li>
-          </ul>
-        </div>
-
-        <div class="glass-white servicio-card reveal">
-          <span class="servicio-card__num">03</span>
-          <h3 class="servicio-card__title">BTL, merchandising y POP</h3>
-          <ul class="servicio-card__list">
-            <li>Creación y despliegue de activaciones</li>
-            <li>Diseño y producción de material POP</li>
-            <li>Almacenamiento, distribución y señalización</li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════ S5 — NOS ENCARGAMOS DE TODO ═══════════════ -->
-  <section class="section section--navy">
-    <div class="container">
-      <div class="section__header reveal">
-        <span class="eyebrow eyebrow--dark">COBERTURA COMPLETA</span>
-        <h2 class="section__h2 section__h2--light">Nos encargamos de <em>todo</em></h2>
-      </div>
-
-      <div class="features__grid">
-
-        <div class="glass-navy feature-card reveal">
-          <div class="feature-card__num">01</div>
-          <div class="feature-card__title">Gestión de beneficios</div>
-          <p class="feature-card__desc">Gestión de promociones y campañas</p>
-        </div>
-
-        <div class="glass-navy feature-card reveal">
-          <div class="feature-card__num">02</div>
-          <div class="feature-card__title">Capacitación</div>
-          <p class="feature-card__desc">Cobertura y señalización en punto de venta</p>
-        </div>
-
-        <div class="glass-navy feature-card reveal">
-          <div class="feature-card__num">03</div>
-          <div class="feature-card__title">Seguimiento</div>
-          <p class="feature-card__desc">Seguimiento comercial especializado</p>
-        </div>
-
-        <div class="glass-navy feature-card reveal">
-          <div class="feature-card__num">04</div>
-          <div class="feature-card__title">Soluciones</div>
-          <p class="feature-card__desc">Incidencias y preguntas frecuentes</p>
-        </div>
-
-        <div class="glass-navy feature-card reveal">
-          <div class="feature-card__num">05</div>
-          <div class="feature-card__title">Análisis comercial</div>
-          <p class="feature-card__desc">Presentación de resultados y estrategias</p>
-        </div>
-
-        <div class="glass-navy feature-card reveal">
-          <div class="feature-card__num">06</div>
-          <div class="feature-card__title">Investigación</div>
-          <p class="feature-card__desc">Investigación de mercado y benchmarking</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════ S6 — MATERIALES ═══════════════ -->
-  <section class="section section--white">
-    <div class="container">
-      <div class="materiales__grid">
-
-        <div class="reveal">
-          <span class="eyebrow eyebrow--light">MATERIALES</span>
-          <h2 class="section__h2 section__h2--dark">
-            Comunicamos tu marca en cada <em>punto de contacto</em>
-          </h2>
-          <p style="margin-top:20px;">
-            Diseñamos y producimos cada pieza que necesitas para activar
-            y comunicar tu programa de beneficios, desde catálogos físicos
-            hasta soluciones digitales con IA.
-          </p>
-        </div>
-
-        <ul class="materiales__list reveal">
-          <li class="materiales__item">
-            <span class="materiales__item-num">01</span>
-            <div class="materiales__item-body">
-              <div class="materiales__item-title">Diseño de piezas gráficas</div>
-              <p class="materiales__item-desc">
-                Material POP, señalética y piezas digitales alineadas
-                al manual de marca de cada aliado.
-              </p>
-            </div>
-          </li>
-          <li class="materiales__item">
-            <span class="materiales__item-num">02</span>
-            <div class="materiales__item-body">
-              <div class="materiales__item-title">Catálogos promocionales</div>
-              <p class="materiales__item-desc">
-                Catálogos físicos y digitales con las ofertas del programa,
-                actualizados por campaña.
-              </p>
-            </div>
-          </li>
-          <li class="materiales__item">
-            <span class="materiales__item-num">03</span>
-            <div class="materiales__item-body">
-              <div class="materiales__item-title">Chatbot AI</div>
-              <p class="materiales__item-desc">
-                Asistente conversacional 24/7 para resolución de consultas
-                de participantes y comercios aliados.
-              </p>
-            </div>
-          </li>
-        </ul>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════ S7 — ALIADOS ESTRATÉGICOS ═══════════════ -->
-  <section class="section section--off">
-    <div class="container">
-      <div class="aliados reveal">
-        <span class="eyebrow eyebrow--light">SECTORES</span>
-        <h2 class="section__h2 section__h2--dark">
-          Trabajamos con aliados en <em>todos los sectores</em>
-        </h2>
-        <p style="margin-top:16px; font-size:16px; color:var(--body-color);">
-          Activamos y gestionamos programas de beneficios en los sectores
-          más relevantes del mercado.
-        </p>
-        <div class="aliados__pills">
-          <span class="pill">Tecnología</span>
-          <span class="pill">Moda</span>
-          <span class="pill">Viajes</span>
-          <span class="pill">Gastronomía</span>
-          <span class="pill">Educación</span>
-          <span class="pill">Y muchas más</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════ S8 — FAQ ═══════════════ -->
-  <section class="section section--navy" id="faq">
-    <div class="container">
-      <div class="section__header reveal">
-        <span class="eyebrow eyebrow--dark">FAQ</span>
-        <h2 class="section__h2 section__h2--light">Preguntas <em>frecuentes</em></h2>
-      </div>
-
-      <div class="faq__wrap">
-
-        <div class="glass-navy faq-item reveal">
-          <button class="faq-item__trigger" aria-expanded="false">
-            <span class="faq-item__question">¿Para quién es un programa de beneficios o alianzas?</span>
-            <span class="faq-item__icon">+</span>
-          </button>
-          <div class="faq-item__body">
-            <p class="faq-item__answer">
-              Un programa de beneficios o alianzas es ideal para cualquier empresa que busque
-              fortalecer sus productos o servicios mediante un paquete de beneficios
-              proporcionados por comercios aliados.
-            </p>
-          </div>
-        </div>
-
-        <div class="glass-navy faq-item reveal">
-          <button class="faq-item__trigger" aria-expanded="false">
-            <span class="faq-item__question">¿Cómo funciona un programa de beneficios o alianzas comerciales?</span>
-            <span class="faq-item__icon">+</span>
-          </button>
-          <div class="faq-item__body">
-            <p class="faq-item__answer">
-              Un programa de beneficios opera mediante la asociación estratégica con comercios
-              y la creación de paquetes de beneficios exclusivos para los participantes del programa.
-            </p>
-          </div>
-        </div>
-
-        <div class="glass-navy faq-item reveal">
-          <button class="faq-item__trigger" aria-expanded="false">
-            <span class="faq-item__question">¿Cómo se trabaja en el día a día el programa de beneficios?</span>
-            <span class="faq-item__icon">+</span>
-          </button>
-          <div class="faq-item__body">
-            <p class="faq-item__answer">
-              En el día a día, el programa implica la gestión continua de las alianzas comerciales,
-              asegurando la comunicación efectiva, el seguimiento de resultados y la optimización
-              constante para generar valor a los participantes.
-            </p>
-          </div>
-        </div>
-
-        <div class="glass-navy faq-item reveal">
-          <button class="faq-item__trigger" aria-expanded="false">
-            <span class="faq-item__question">¿Cómo funcionan mejor las alianzas o programas de beneficios?</span>
-            <span class="faq-item__icon">+</span>
-          </button>
-          <div class="faq-item__body">
-            <p class="faq-item__answer">
-              Las alianzas prosperan cuando hay una comprensión profunda de las necesidades
-              de los participantes, colaboración estrecha con los comercios aliados, y una
-              oferta personalizada y adaptable al mercado.
-            </p>
-          </div>
-        </div>
-
-        <div class="glass-navy faq-item reveal">
-          <button class="faq-item__trigger" aria-expanded="false">
-            <span class="faq-item__question">¿Cuáles son los beneficios tangibles de participar en un programa de alianzas comerciales?</span>
-            <span class="faq-item__icon">+</span>
-          </button>
-          <div class="faq-item__body">
-            <p class="faq-item__answer">
-              Acceso a descuentos exclusivos, promociones especiales, fortalecimiento de marca
-              mediante alianzas estratégicas, y mejora de la lealtad de clientes y colaboradores.
-            </p>
-          </div>
-        </div>
-
-        <div class="glass-navy faq-item reveal">
-          <button class="faq-item__trigger" aria-expanded="false">
-            <span class="faq-item__question">¿Cómo se evalúa el éxito de un programa de alianzas comerciales?</span>
-            <span class="faq-item__icon">+</span>
-          </button>
-          <div class="faq-item__body">
-            <p class="faq-item__answer">
-              El éxito se evalúa mediante KPIs como el crecimiento en la participación,
-              incremento en ventas, satisfacción del cliente y retención, usando herramientas
-              de CRM e inteligencia artificial.
-            </p>
-          </div>
-        </div>
-
-        <div class="glass-navy faq-item reveal">
-          <button class="faq-item__trigger" aria-expanded="false">
-            <span class="faq-item__question">¿Cuáles son los criterios para seleccionar comercios aliados?</span>
-            <span class="faq-item__icon">+</span>
-          </button>
-          <div class="faq-item__body">
-            <p class="faq-item__answer">
-              La selección se basa en la relevancia para el público objetivo, la calidad de sus
-              productos o servicios, su reputación, capacidad de ofrecer beneficios exclusivos
-              y alineación con los valores de la empresa.
-            </p>
-          </div>
-        </div>
-
-        <div class="glass-navy faq-item reveal">
-          <button class="faq-item__trigger" aria-expanded="false">
-            <span class="faq-item__question">¿Cómo se mide la satisfacción de los participantes?</span>
-            <span class="faq-item__icon">+</span>
-          </button>
-          <div class="faq-item__body">
-            <p class="faq-item__answer">
-              A través de encuestas periódicas, retroalimentación directa, análisis de la
-              participación en los beneficios y evaluación de los niveles de engagement y retención.
-            </p>
-          </div>
-        </div>
-
-        <div class="glass-navy faq-item reveal">
-          <button class="faq-item__trigger" aria-expanded="false">
-            <span class="faq-item__question">¿Cómo se adapta un programa de alianzas a las tendencias del mercado?</span>
-            <span class="faq-item__icon">+</span>
-          </button>
-          <div class="faq-item__body">
-            <p class="faq-item__answer">
-              La adaptabilidad se logra mediante la monitorización constante del mercado,
-              la identificación de nuevas tendencias y el ajuste rápido de las ofertas y
-              alianzas para mantenerse relevante.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════ S9 — CONTACTO ═══════════════ -->
-  <section class="section section--navy-deep" id="contacto">
-    <div class="container">
-      <div class="contacto reveal">
-        <div class="contacto__inner">
-          <span class="eyebrow eyebrow--dark">CONVERSEMOS</span>
-          <h2 class="contacto__h2">Hagamos que tus alianzas <em>funcionen</em></h2>
-          <p class="contacto__sub">Cuéntanos tu proyecto. Te respondemos en menos de 24 horas.</p>
-
-          <form class="glass-navy contacto__form" id="contactForm" novalidate>
-            <input class="form-field" type="text"  name="nombre"    placeholder="Nombre y Apellidos"    required>
-            <input class="form-field" type="email" name="email"     placeholder="Correo electrónico"   required>
-            <input class="form-field" type="text"  name="tema"      placeholder="Tema o requerimiento" required>
-            <input class="form-field" type="text"  name="fecha"     placeholder="Fecha y hora tentativa">
-            <button class="form-submit" type="submit" id="submitBtn">Enviar Mensaje →</button>
-          </form>
-
-          <a href="mailto:corporativo@aspiriateam.com" class="contacto__email">
-            corporativo@aspiriateam.com
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════ FOOTER ═══════════════ -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__main">
-        <a href="#inicio" class="footer__logo">
-          <img src="assets/logo.webp" alt="ASPIRIA">
-        </a>
-        <ul class="footer__links">
-          <li><a href="#nosotros">Nosotros</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#faq">Preguntas frecuentes</a></li>
-          <li><a href="#blog">Blog de valor</a></li>
-        </ul>
-        <div class="footer__contact">
-          <a href="mailto:corporativo@aspiriateam.com" class="footer__email">
-            corporativo@aspiriateam.com
-          </a>
-          <a href="https://linkedin.com/company/aspiriateam" target="_blank" class="footer__linkedin">
-            LinkedIn →
-          </a>
-        </div>
-      </div>
-      <div class="footer__copy">
-        © 2026 ASPIRIA TEAM · www.aspiriateam.com · Todos los derechos reservados.
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
 </body>
 </html>
