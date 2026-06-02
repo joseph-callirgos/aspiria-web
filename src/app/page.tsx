@@ -1,6 +1,16 @@
 import StackingCards, { type ServiceData } from '@/components/ui/stacking-card';
 import Nav from '@/components/ui/nav';
 import RadialOrbitalTimeline, { type TimelineItem } from '@/components/ui/radial-orbital-timeline';
+import FluidCardStack, { type EcoCard } from '@/components/ui/fluid-card-stack';
+
+const ecoCards: EcoCard[] = [
+  { num: '01', icon: 'Smartphone',   title: 'App móvil',   desc: 'Progreso de base, cobertura y cumplimiento por ejecutivo en tiempo real.',    accent: '#00C4AA' },
+  { num: '02', icon: 'Monitor',      title: 'Dashboard',   desc: 'KPIs por programa, cobertura de PDVs y rendimiento por KAM. Actualización en vivo.', accent: '#00D4B4' },
+  { num: '03', icon: 'CalendarDays', title: 'Calendario',  desc: 'Planificación diaria de visitas reportadas en vivo por cada ejecutivo.',      accent: '#2B80D4' },
+  { num: '04', icon: 'Map',          title: 'Mapa',        desc: 'Visualización geográfica de rutas, PDV y zonas trabajadas por ejecutivo.',    accent: '#00C4AA' },
+  { num: '05', icon: 'Package',      title: 'Kardex',      desc: 'Catálogo visual de material POP con saldos, alertas e historial por PDV.',    accent: '#00D4B4' },
+  { num: '06', icon: 'FileBarChart', title: 'Reportes',    desc: 'Exportación a Excel/PDF instantánea. Búsquedas por ejecutivo y programa.',    accent: '#2B80D4' },
+];
 
 const aspiriaPhases: TimelineItem[] = [
   {
@@ -194,32 +204,16 @@ export default function Home() {
       </section>
 
       {/* ── ECOSISTEMA ── */}
-      <section className="bg-off py-24">
+      <section id="ecosistema" className="bg-navy-d py-28">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="text-center mb-14">
+          <div className="text-center mb-20">
             <span className="text-[11px] font-bold tracking-[.18em] uppercase text-teal block mb-4">Ecosistema ASPIRIA</span>
-            <h2 className="font-serif text-4xl font-normal text-navy leading-tight">
+            <h2 className="font-serif text-4xl font-normal text-white leading-tight">
               Tecnología que <em className="italic text-teal">cierra el ciclo</em><br />de la ejecución.
             </h2>
-            <p className="text-base font-light text-[#4A5568] mt-3">Seis módulos integrados. Todo conectado. Todo trazable.</p>
+            <p className="text-base font-light text-white/40 mt-3">Seis módulos integrados. Clic para explorar.</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {[
-              { ico: '📱', num: '01 · App móvil', title: 'Campo en tiempo real', desc: 'Progreso de base, cobertura y cumplimiento por ejecutivo.' },
-              { ico: '🖥️', num: '02 · Dashboard', title: 'Visibilidad ejecutiva', desc: 'KPIs por programa, cobertura de PDVs y rendimiento por KAM.' },
-              { ico: '📅', num: '03 · Calendario', title: 'Rutas sincronizadas', desc: 'Planificación diaria de visitas reportadas en vivo.' },
-              { ico: '🗺️', num: '04 · Mapa', title: 'Cobertura georreferenciada', desc: 'Visualización geográfica de rutas y zonas trabajadas.' },
-              { ico: '📦', num: '05 · Kardex', title: 'Control de materiales', desc: 'Catálogo visual de material POP con saldos y alertas.' },
-              { ico: '📋', num: '06 · Reportes', title: 'Exportables en un clic', desc: 'Búsquedas por ejecutivo, KAM, programa y distrito.' },
-            ].map(({ ico, num, title, desc }) => (
-              <div key={num} className="bg-white border border-[#E2E8F2] rounded-sm p-6">
-                <span className="text-2xl block mb-3">{ico}</span>
-                <span className="text-[10px] font-bold tracking-[.14em] text-teal uppercase block mb-3">{num}</span>
-                <div className="text-sm font-bold text-navy mb-1.5">{title}</div>
-                <p className="text-xs font-light text-[#4A5568] leading-relaxed">{desc}</p>
-              </div>
-            ))}
-          </div>
+          <FluidCardStack cards={ecoCards} />
         </div>
       </section>
 
