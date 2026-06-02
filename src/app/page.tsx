@@ -164,14 +164,33 @@ export default function Home() {
       <section className="bg-off py-24">
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
+
+            {/* left: stat + caption + metrics */}
             <div>
               <span className="text-[11px] font-bold tracking-[.18em] uppercase text-teal block mb-4">El problema</span>
               <div className="font-serif text-[clamp(72px,12vw,120px)] leading-[.9] bg-gradient-to-r from-teal-l via-teal to-blue-m bg-clip-text text-transparent mb-4">70%</div>
-              <p className="text-lg font-medium text-navy leading-tight max-w-xs mb-4">
+              <p className="text-lg font-medium text-navy leading-tight max-w-xs mb-6">
                 de los acuerdos comerciales firmados nunca se ejecutan correctamente en el punto de venta.
               </p>
-              <div className="h-0.5 w-11 bg-gradient-to-r from-teal-l to-blue-m" />
+              <div className="h-0.5 w-11 bg-gradient-to-r from-teal-l to-blue-m mb-8" />
+
+              {/* stats row */}
+              <div className="flex gap-8 flex-wrap">
+                {[
+                  { n: '+15', l: 'Años en canal financiero' },
+                  { n: '4',   l: 'Sectores estratégicos' },
+                  { n: '100%',l: 'Trazabilidad operativa' },
+                  { n: 'Nac.',l: 'Cobertura en campo' },
+                ].map(({ n, l }) => (
+                  <div key={l}>
+                    <div className="font-serif text-3xl leading-none bg-gradient-to-r from-teal-l via-teal to-blue-m bg-clip-text text-transparent">{n}</div>
+                    <div className="text-[11px] font-light text-[#8896AA] mt-1">{l}</div>
+                  </div>
+                ))}
+              </div>
             </div>
+
+            {/* right: pain points */}
             <ul className="flex flex-col gap-5">
               {[
                 { icon: '📍', title: 'Sin visibilidad de campo', desc: 'No se sabe qué ejecutivo visitó, cuándo ni qué encontró en el PDV.' },
@@ -187,6 +206,7 @@ export default function Home() {
                 </li>
               ))}
             </ul>
+
           </div>
         </div>
       </section>
