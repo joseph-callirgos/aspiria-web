@@ -7,9 +7,9 @@ export interface ServiceData {
   num: string;
   title: string;
   description: string;
-  image: string;
   color: string;
   pills: string[];
+  items: string[];
 }
 
 interface CardProps {
@@ -22,12 +22,6 @@ interface CardProps {
 
 function Card({ i, service, progress, range, targetScale }: CardProps) {
   const container = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ['start end', 'start start'],
-  });
-
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1.4, 1]);
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
@@ -41,29 +35,28 @@ function Card({ i, service, progress, range, targetScale }: CardProps) {
           scale,
           top: `calc(-5vh + ${i * 28}px)`,
         }}
-        className="relative flex flex-col w-[85%] max-w-4xl h-[460px] rounded-xl p-10 origin-top border border-white/10"
+        className="relative flex flex-col w-[85%] max-w-4xl rounded-xl p-10 origin-top border border-white/10"
       >
         {/* number watermark */}
-        <span className="absolute top-6 right-8 font-serif text-[110px] leading-none text-white/05 select-none pointer-events-none">
+        <span className="absolute bottom-4 right-8 font-serif text-[120px] leading-none text-white/[0.04] select-none pointer-events-none">
           {service.num}
         </span>
 
         {/* eyebrow */}
-        <span className="text-[10px] font-bold tracking-[.18em] uppercase text-teal mb-3 relative z-10">
+        <span className="text-[10px] font-bold tracking-[.18em] uppercase text-teal mb-4">
           {service.num} · Servicio
         </span>
 
-        <h2 className="text-2xl font-semibold text-white leading-tight max-w-xs relative z-10 mb-6">
-          {service.title}
-        </h2>
-
-        <div className="flex gap-10 h-full">
-          {/* left: description + pills */}
-          <div className="w-[38%] flex flex-col justify-between">
-            <p className="text-sm font-light text-white/65 leading-relaxed">
+        <div className="flex gap-12 items-start">
+          {/* left: title + description */}
+          <div className="w-1/2">
+            <h2 className="font-serif text-3xl font-normal text-white leading-tight mb-4">
+              {service.title}
+            </h2>
+            <p className="text-sm font-light text-white/60 leading-relaxed">
               {service.description}
             </p>
-            <div className="flex flex-wrap gap-2 mt-4">
+            <div className="flex flex-wrap gap-2 mt-6">
               {service.pills.map((pill) => (
                 <span
                   key={pill}
@@ -75,15 +68,16 @@ function Card({ i, service, progress, range, targetScale }: CardProps) {
             </div>
           </div>
 
-          {/* right: image */}
-          <div className="relative w-[62%] h-full rounded-lg overflow-hidden">
-            <motion.div className="w-full h-full" style={{ scale: imageScale }}>
-              <img
-                src={service.image}
-                alt={service.title}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            </motion.div>
+          {/* right: item list */}
+          <div className="w-1/2 border-l border-white/08 pl-12 flex flex-col gap-4">
+            {service.items.map((item, idx) => (
+              <div key={item} className="flex items-start gap-3">
+                <span className="text-[10px] font-bold text-teal tracking-widest mt-0.5 shrink-0">
+                  {String(idx + 1).padStart(2, '0')}
+                </span>
+                <span className="text-sm font-light text-white/70 leading-snug">{item}</span>
+              </div>
+            ))}
           </div>
         </div>
       </motion.div>

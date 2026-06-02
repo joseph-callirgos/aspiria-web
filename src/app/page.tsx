@@ -6,31 +6,46 @@ const services: ServiceData[] = [
     num: '01',
     title: 'Gestión de Alianzas y Cuentas Clave',
     description:
-      'Afiliamos, mantenemos y hacemos crecer cuentas estratégicas. Gestionamos campañas de beneficios y convenios con modelo KAM: ejecutivo dedicado, ruta programada y reporte periódico de desempeño.',
-    image:
-      'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&auto=format&fit=crop&q=80',
+      'Afiliamos, mantenemos y hacemos crecer cuentas estratégicas con modelo KAM: ejecutivo dedicado, ruta programada y reporte periódico de desempeño.',
     color: '#162050',
     pills: ['KAM', 'Afiliaciones', 'Campañas', 'Convenios'],
+    items: [
+      'Gestión de equipo comercial KAM dedicado',
+      'Proceso comercial completo de inicio a fin',
+      'Gestión de campañas y programas de beneficios',
+      'Calidad y seguimiento de convenios activos',
+      'Reportes semanales de cobertura y desempeño',
+    ],
   },
   {
     num: '02',
     title: 'Impulso de Medios de Pago',
     description:
-      'Convertimos cada punto de venta en un embajador activo del producto financiero. Activación, seguimiento comercial y capacitación continua con equipo especializado en discurso de medios de pago.',
-    image:
-      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&auto=format&fit=crop&q=80',
+      'Convertimos cada punto de venta en un embajador activo del producto financiero con capacitación continua y discurso especializado.',
     color: '#0D1B4B',
     pills: ['Activación PDV', 'Conversión', 'Embajadores'],
+    items: [
+      'Activación y conversión en punto de venta',
+      'Capacitación especializada en medios de pago',
+      'Seguimiento comercial con métricas accionables',
+      'Gestión de embajadores por zona geográfica',
+      'Documentación fotográfica por visita',
+    ],
   },
   {
     num: '03',
     title: 'Trade Marketing',
     description:
-      'Implementamos y auditamos la presencia de marca en canal. Gestión integral de señalización, material POP y capacitación en PDV, con validación fotográfica y trazabilidad completa por visita.',
-    image:
-      'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900&auto=format&fit=crop&q=80',
+      'Implementamos y auditamos la presencia de marca en canal con validación fotográfica y trazabilidad completa por visita.',
     color: '#091340',
     pills: ['Señalización', 'Material POP', 'Validación'],
+    items: [
+      'Diseño y producción de material POP',
+      'Almacenamiento, distribución y señalización',
+      'Auditoría fotográfica en cada PDV visitado',
+      'Activaciones BTL y merchandising en campo',
+      'Control de inventario con kardex digital',
+    ],
   },
 ];
 
