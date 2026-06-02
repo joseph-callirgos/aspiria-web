@@ -116,7 +116,7 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
 
   return (
     <div
-      className="w-full h-[520px] flex items-center justify-center overflow-hidden [mask-image:linear-gradient(to_bottom,black_70%,transparent_100%)]"
+      className="w-full h-[520px] flex items-center justify-center overflow-hidden"
       ref={containerRef}
       onClick={handleContainerClick}
     >
@@ -125,11 +125,13 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
         ref={orbitRef}
         style={{ perspective: "1000px" }}
       >
-        {/* Center orb */}
-        <div className="absolute w-14 h-14 rounded-full bg-gradient-to-br from-teal via-blue-500 to-blue-700 animate-pulse flex items-center justify-center z-10">
-          <div className="absolute w-18 h-18 rounded-full border border-white/20 animate-ping opacity-70" />
-          <div className="absolute w-22 h-22 rounded-full border border-white/10 animate-ping opacity-50" style={{ animationDelay: "0.5s" }} />
-          <div className="w-7 h-7 rounded-full bg-white/80 backdrop-blur-md" />
+        {/* Center orb — minimal, no large glow bleed */}
+        <div className="absolute w-10 h-10 rounded-full flex items-center justify-center z-10"
+          style={{ boxShadow: '0 0 12px rgba(0,196,170,0.4), 0 0 4px rgba(0,196,170,0.8)' }}
+        >
+          <div className="w-10 h-10 rounded-full bg-navy-c border border-teal/50 flex items-center justify-center">
+            <div className="w-3 h-3 rounded-full bg-teal" />
+          </div>
         </div>
 
         {/* Orbit ring */}
