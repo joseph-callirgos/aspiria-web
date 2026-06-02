@@ -1,7 +1,7 @@
 import StackingCards, { type ServiceData } from '@/components/ui/stacking-card';
 import Nav from '@/components/ui/nav';
 import RadialOrbitalTimeline, { type TimelineItem } from '@/components/ui/radial-orbital-timeline';
-import EcosystemGrid from '@/components/ui/ecosystem-grid';
+import GradientCardShowcase from '@/components/gradient-card-showcase';
 
 
 const aspiriaPhases: TimelineItem[] = [
@@ -210,7 +210,7 @@ export default function Home() {
             </h2>
             <p className="text-base font-light text-white/40 mt-3">Seis módulos integrados. Todo conectado. Todo trazable.</p>
           </div>
-          <EcosystemGrid />
+          <GradientCardShowcase />
         </div>
       </section>
 
