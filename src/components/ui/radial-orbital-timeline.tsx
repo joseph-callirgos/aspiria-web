@@ -186,10 +186,10 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
               </div>
 
               {/* Label */}
-              <div className={`
-                absolute top-12 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-semibold tracking-wider transition-all duration-300
-                ${isExpanded ? "text-teal scale-110" : "text-white/70"}
-              `}>
+              <div
+                className={`absolute top-12 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-semibold tracking-wider transition-all duration-300 ${isExpanded ? "scale-110" : "text-white/70"}`}
+                style={isExpanded ? { color: '#fff', textShadow: '0 0 8px rgba(255,255,255,0.9), 0 0 20px rgba(0,196,170,0.6)' } : {}}
+              >
                 {item.title}
               </div>
 
