@@ -2,14 +2,32 @@
 import { ReactLenis } from 'lenis/react';
 import { useTransform, motion, useScroll, MotionValue } from 'motion/react';
 import { useRef } from 'react';
+import {
+  Users2, Route, BarChart3, Handshake,
+  Zap, GraduationCap, TrendingUp, MapPin,
+  Package, Camera, Truck, LayoutTemplate,
+  type LucideIcon,
+} from 'lucide-react';
+
+const ICONS: Record<string, LucideIcon> = {
+  Users2, Route, BarChart3, Handshake,
+  Zap, GraduationCap, TrendingUp, MapPin,
+  Package, Camera, Truck, LayoutTemplate,
+};
+
+export interface ServiceItem {
+  icon: string;
+  label: string;
+}
 
 export interface ServiceData {
   num: string;
   title: string;
-  description: string;
+  tagline: string;
   color: string;
+  accent: string;
   pills: string[];
-  items: string[];
+  items: ServiceItem[];
 }
 
 interface CardProps {
@@ -25,71 +43,66 @@ function Card({ i, service, progress, range, targetScale }: CardProps) {
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
-    <div
-      ref={container}
-      className="h-screen flex items-center justify-center sticky top-0"
-    >
+    <div ref={container} className="h-screen flex items-center justify-center sticky top-0">
       <motion.div
-        style={{
-          backgroundColor: service.color,
-          scale,
-          top: `calc(-5vh + ${i * 28}px)`,
-        }}
-        className="relative flex flex-col w-[85%] max-w-4xl rounded-xl p-10 origin-top border border-white/10"
+        style={{ backgroundColor: service.color, scale, top: `calc(-5vh + ${i * 28}px)` }}
+        className="relative w-[82%] max-w-3xl rounded-2xl p-10 origin-top border border-white/08 overflow-hidden"
       >
-        {/* number watermark */}
-        <span className="absolute bottom-4 right-8 font-serif text-[120px] leading-none text-white/[0.04] select-none pointer-events-none">
+        {/* watermark number */}
+        <span className="absolute -bottom-6 -right-4 font-serif text-[160px] leading-none select-none pointer-events-none text-white/[0.03]">
           {service.num}
         </span>
 
-        {/* eyebrow */}
-        <span className="text-[10px] font-bold tracking-[.18em] uppercase text-teal mb-4">
-          {service.num} · Servicio
-        </span>
-
-        <div className="flex gap-12 items-start">
-          {/* left: title + description */}
-          <div className="w-1/2">
-            <h2 className="font-serif text-3xl font-normal text-white leading-tight mb-4">
-              {service.title}
-            </h2>
-            <p className="text-sm font-light text-white/60 leading-relaxed">
-              {service.description}
-            </p>
-            <div className="flex flex-wrap gap-2 mt-6">
-              {service.pills.map((pill) => (
-                <span
-                  key={pill}
-                  className="text-[11px] font-bold text-teal bg-teal/10 border border-teal/20 px-3 py-1 rounded-full"
-                >
-                  {pill}
-                </span>
-              ))}
-            </div>
+        {/* top row */}
+        <div className="flex items-start justify-between mb-8">
+          <div>
+            <span className="text-[10px] font-bold tracking-[.2em] uppercase mb-3 block" style={{ color: service.accent }}>
+              {service.num} · Servicio
+            </span>
+            <h2 className="font-serif text-3xl font-normal text-white leading-tight">{service.title}</h2>
+            <p className="text-sm font-light text-white/45 mt-2">{service.tagline}</p>
           </div>
 
-          {/* right: item list */}
-          <div className="w-1/2 border-l border-white/08 pl-12 flex flex-col gap-4">
-            {service.items.map((item, idx) => (
-              <div key={item} className="flex items-start gap-3">
-                <span className="text-[10px] font-bold text-teal tracking-widest mt-0.5 shrink-0">
-                  {String(idx + 1).padStart(2, '0')}
-                </span>
-                <span className="text-sm font-light text-white/70 leading-snug">{item}</span>
-              </div>
+          {/* pills */}
+          <div className="flex flex-col gap-1.5 items-end shrink-0 ml-8 mt-1">
+            {service.pills.map(p => (
+              <span
+                key={p}
+                className="text-[10px] font-bold tracking-wide px-2.5 py-1 rounded-full border"
+                style={{ color: service.accent, borderColor: `${service.accent}30`, backgroundColor: `${service.accent}10` }}
+              >
+                {p}
+              </span>
             ))}
           </div>
+        </div>
+
+        {/* divider */}
+        <div className="h-px bg-white/08 mb-8" />
+
+        {/* icon grid */}
+        <div className="grid grid-cols-4 gap-5">
+          {service.items.map(({ icon, label }) => {
+            const Icon = ICONS[icon];
+            return (
+              <div key={label} className="flex flex-col items-center gap-2.5 text-center">
+                <div
+                  className="w-11 h-11 rounded-xl flex items-center justify-center"
+                  style={{ backgroundColor: `${service.accent}15` }}
+                >
+                  {Icon && <Icon size={20} style={{ color: service.accent }} strokeWidth={1.5} />}
+                </div>
+                <span className="text-[11px] font-medium text-white/60 leading-tight">{label}</span>
+              </div>
+            );
+          })}
         </div>
       </motion.div>
     </div>
   );
 }
 
-interface StackingCardsProps {
-  services: ServiceData[];
-}
-
-export default function StackingCards({ services }: StackingCardsProps) {
+export default function StackingCards({ services }: { services: ServiceData[] }) {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
