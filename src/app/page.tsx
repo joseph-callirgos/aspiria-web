@@ -144,19 +144,6 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="flex gap-8 flex-wrap mt-10 pt-8 border-t border-white/10">
-            {[
-              { n: '+15', l: 'Años en canal financiero' },
-              { n: '4',   l: 'Sectores estratégicos' },
-              { n: '100%',l: 'Trazabilidad operativa' },
-              { n: 'Nac.',l: 'Cobertura en campo' },
-            ].map(({ n, l }) => (
-              <div key={l}>
-                <div className="font-serif text-3xl leading-none bg-gradient-to-r from-teal-l via-teal to-blue-m bg-clip-text text-transparent">{n}</div>
-                <div className="text-[11px] font-light text-white/40 mt-1">{l}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
