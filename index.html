@@ -6,12 +6,28 @@
 <title>ASPIRIA — Plataforma Comercial B2B</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
+/* ── GEIST VARIABLE FONT ── */
+@font-face {
+  font-family: 'Geist';
+  src: url('fonts/Geist.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist';
+  src: url('fonts/Geist-Italic.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 /* ── RESET ── */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:#fff;color:#0a0a14;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:#fff;color:#0a0a14;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
 /* ── TOKENS ── */
 :root{
@@ -28,22 +44,59 @@ body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,san
 
 /* ── TYPE ── */
 .serif{font-family:'Instrument Serif',Georgia,serif}
-.eye{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:14px}
+.eye{font-family:'Geist',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:14px}
 .eye-w{color:rgba(255,255,255,.5)}
 .h2{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(24px,4vw,40px);font-weight:400;color:var(--navy);line-height:1.2;letter-spacing:-.02em}
 .h2 em{font-style:italic;color:var(--teal)}
-.sub{font-size:16px;font-weight:300;color:var(--body);max-width:480px;margin:10px auto 0;line-height:1.7}
+.sub{font-family:'Geist',sans-serif;font-size:16px;font-weight:300;color:var(--body);max-width:480px;margin:10px auto 0;line-height:1.7}
 .sec-head{text-align:center;margin-bottom:48px}
 
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,19,64,.97);border-bottom:1px solid rgba(255,255,255,.06);padding:0 20px;height:58px;display:flex;align-items:center;justify-content:space-between}
+/* ── NAV — LIQUID GLASS ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:58px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 20px;
+
+  /* glass base */
+  background:rgba(9,19,64,.45);
+  -webkit-backdrop-filter:blur(28px) saturate(180%) brightness(1.08);
+  backdrop-filter:blur(28px) saturate(180%) brightness(1.08);
+
+  /* border bottom con gradiente teal */
+  border-bottom:1px solid rgba(255,255,255,.07);
+
+  /* inner top highlight + sombra exterior */
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.10),
+    inset 0 -1px 0 rgba(0,196,170,.12),
+    0 8px 32px rgba(0,0,0,.35),
+    0 1px 0 rgba(0,196,170,.08);
+
+  transition:background .3s ease,box-shadow .3s ease;
+}
+
+/* línea gradiente en la parte inferior */
+nav::after{
+  content:'';
+  position:absolute;bottom:-1px;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent 0%,rgba(0,196,170,.35) 30%,rgba(43,128,212,.25) 70%,transparent 100%);
+  pointer-events:none;
+}
+
 .nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
 .nav-logo svg{height:26px;width:auto;flex-shrink:0}
-.nav-word{font-weight:700;font-size:18px;color:#fff;letter-spacing:-.01em}
+.nav-word{font-family:'Geist',sans-serif;font-weight:700;font-size:18px;color:#fff;letter-spacing:-.02em}
 .nav-links{display:flex;gap:24px;list-style:none;align-items:center}
-.nav-links a{font-size:13px;color:rgba(255,255,255,.55);text-decoration:none}
+.nav-links a{font-family:'Geist',sans-serif;font-size:13px;font-weight:400;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:#fff}
-.nav-cta{background:var(--teal);color:var(--navy-d);font-size:13px;font-weight:700;padding:8px 18px;border-radius:3px;text-decoration:none;white-space:nowrap}
+.nav-cta{
+  font-family:'Geist',sans-serif;font-size:13px;font-weight:600;
+  background:var(--teal);color:var(--navy-d);
+  padding:8px 18px;border-radius:3px;text-decoration:none;white-space:nowrap;
+  transition:background .2s,transform .15s;
+}
+.nav-cta:hover{background:var(--teal-l);transform:translateY(-1px)}
 @media(max-width:640px){.nav-links{display:none}}
 
 /* ── HERO ── */
