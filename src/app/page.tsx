@@ -100,25 +100,28 @@ export default function Home() {
       <Nav />
 
       {/* ── HERO ── */}
-      <section className="relative h-screen flex items-center overflow-hidden bg-[#091340]">
+      <section className="relative h-screen overflow-hidden bg-[#091340]">
         <video
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          className="absolute inset-0 w-full h-full object-cover opacity-50"
           autoPlay muted loop playsInline
         >
           <source src="/video/hero.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#091340]/90 via-[#091340]/65 to-[#091340]/30" />
+        {/* overlay más suave, solo oscurece la parte inferior-izquierda */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#091340]/95 via-[#091340]/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#091340]/80 via-[#091340]/20 to-transparent" />
 
-        <div className="relative z-10 max-w-5xl mx-auto px-6 pt-16">
-          <span className="text-[11px] font-bold tracking-[.18em] uppercase text-teal block mb-5">
+        {/* contenido anclado abajo-izquierda */}
+        <div className="absolute bottom-12 left-0 right-0 z-10 max-w-5xl mx-auto px-8">
+          <span className="text-[11px] font-bold tracking-[.18em] uppercase text-teal block mb-4">
             Alianzas Comerciales · B2B · Perú
           </span>
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] tracking-tight max-w-2xl mb-6">
+          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] tracking-tight max-w-xl mb-5">
             Ejecutamos, medimos<br />
             y <em className="text-teal-l italic">documentamos</em><br />
             tu operación comercial.
           </h1>
-          <p className="text-lg font-light text-white/60 max-w-lg leading-relaxed mb-10">
+          <p className="text-base font-light text-white/55 max-w-md leading-relaxed mb-8">
             Gestión de alianzas, impulso de medios de pago y trade marketing
             con trazabilidad completa en campo.
           </p>
@@ -131,16 +134,16 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="flex gap-10 flex-wrap mt-16 pt-10 border-t border-white/08">
+          <div className="flex gap-8 flex-wrap mt-10 pt-8 border-t border-white/10">
             {[
               { n: '+15', l: 'Años en canal financiero' },
-              { n: '4', l: 'Sectores estratégicos' },
-              { n: '100%', l: 'Trazabilidad operativa' },
-              { n: 'Nac.', l: 'Cobertura en campo' },
+              { n: '4',   l: 'Sectores estratégicos' },
+              { n: '100%',l: 'Trazabilidad operativa' },
+              { n: 'Nac.',l: 'Cobertura en campo' },
             ].map(({ n, l }) => (
               <div key={l}>
-                <div className="font-serif text-4xl leading-none bg-gradient-to-r from-teal-l via-teal to-blue-m bg-clip-text text-transparent">{n}</div>
-                <div className="text-xs font-light text-white/40 mt-1">{l}</div>
+                <div className="font-serif text-3xl leading-none bg-gradient-to-r from-teal-l via-teal to-blue-m bg-clip-text text-transparent">{n}</div>
+                <div className="text-[11px] font-light text-white/40 mt-1">{l}</div>
               </div>
             ))}
           </div>
