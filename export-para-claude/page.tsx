@@ -1,5 +1,3 @@
-'use client';
-import { motion, useScroll, useTransform } from 'motion/react';
 import StackingCards, { type ServiceData } from '@/components/ui/stacking-card';
 import Nav from '@/components/ui/nav';
 import RadialOrbitalTimeline, { type TimelineItem } from '@/components/ui/radial-orbital-timeline';
@@ -98,74 +96,47 @@ const services: ServiceData[] = [
   },
 ];
 
-const heroItem = {
-  initial: { opacity: 0, y: 20 },
-  animate:  { opacity: 1, y: 0,  transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const } },
-};
-
 export default function Home() {
-  const { scrollYProgress } = useScroll();
-  const videoY = useTransform(scrollYProgress, [0, 1], ['0px', '-180px']);
-
   return (
     <main className="bg-[#091340] text-white">
       <Nav />
 
       {/* ── HERO ── */}
       <section className="relative h-screen overflow-hidden bg-[#091340]">
-        <motion.div
-          className="absolute inset-0"
-          style={{ y: videoY }}
+        <video
+          className="absolute inset-0 w-full h-full object-cover opacity-50"
+          autoPlay muted loop playsInline
         >
-          <video
-            className="absolute inset-0 w-full h-full object-cover opacity-50"
-            autoPlay muted loop playsInline
-          >
-            <source src="/video/hero.mp4" type="video/mp4" />
-          </video>
-        </motion.div>
+          <source src="/video/hero.mp4" type="video/mp4" />
+        </video>
         {/* overlay más suave, solo oscurece la parte inferior-izquierda */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#091340]/95 via-[#091340]/30 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#091340]/80 via-[#091340]/20 to-transparent" />
 
         {/* contenido anclado abajo-izquierda */}
-        <motion.div
-          className="absolute bottom-12 left-0 z-10 px-12 max-w-2xl"
-          initial="initial"
-          animate="animate"
-          variants={{ animate: { transition: { staggerChildren: 0.12, delayChildren: 0.3 } } }}
-        >
-          <motion.span variants={heroItem} className="text-[11px] font-bold tracking-[.18em] uppercase text-teal block mb-4">
+        <div className="absolute bottom-12 left-0 z-10 px-12 max-w-2xl">
+          <span className="text-[11px] font-bold tracking-[.18em] uppercase text-teal block mb-4">
             Alianzas Comerciales · B2B · Perú
-          </motion.span>
-          <motion.h1 variants={heroItem} className="font-serif text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] tracking-tight mb-5 whitespace-nowrap">
+          </span>
+          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] tracking-tight mb-5 whitespace-nowrap">
             Ejecutamos, medimos<br />
             y <em className="text-teal-l italic">documentamos</em><br />
             tu operación comercial.
-          </motion.h1>
-          <motion.p variants={heroItem} className="text-base font-light text-white/55 max-w-md leading-relaxed mb-8">
+          </h1>
+          <p className="text-base font-light text-white/55 max-w-md leading-relaxed mb-8">
             Gestión de alianzas, impulso de medios de pago y trade marketing
             con trazabilidad completa en campo.
-          </motion.p>
-          <motion.div variants={heroItem} className="flex gap-4 flex-wrap">
-            <motion.a
-              href="#contacto"
-              className="hero-btn-primary inline-flex items-center gap-2 bg-gradient-to-r from-teal-l via-teal to-blue-m text-white font-semibold text-sm px-7 py-3.5 rounded-sm relative overflow-hidden"
-              whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
-              whileTap={{ scale: 0.97 }}
-            >
+          </p>
+          <div className="flex gap-4 flex-wrap">
+            <a href="#contacto" className="inline-flex items-center gap-2 bg-gradient-to-r from-teal-l via-teal to-blue-m text-white font-semibold text-sm px-7 py-3.5 rounded-sm hover:opacity-90 transition-opacity">
               Solicitar propuesta
-            </motion.a>
-            <motion.a
-              href="#servicios"
-              className="inline-flex items-center gap-2 border border-white/20 text-white/75 font-medium text-sm px-7 py-3.5 rounded-sm hover:border-white/50 hover:text-white transition-all"
-              whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
-              whileTap={{ scale: 0.97 }}
-            >
+            </a>
+            <a href="#servicios" className="inline-flex items-center gap-2 border border-white/20 text-white/75 font-medium text-sm px-7 py-3.5 rounded-sm hover:border-white/50 hover:text-white transition-all">
               Ver servicios →
-            </motion.a>
-          </motion.div>
-        </motion.div>
+            </a>
+          </div>
+
+        </div>
       </section>
 
       {/* ── EL PROBLEMA ── */}
@@ -180,13 +151,7 @@ export default function Home() {
               <p className="text-lg font-medium text-navy leading-tight max-w-xs mb-6">
                 de los acuerdos comerciales firmados nunca se ejecutan correctamente en el punto de venta.
               </p>
-              <motion.div
-                className="h-0.5 bg-gradient-to-r from-teal-l to-blue-m mb-8"
-                initial={{ width: 0 }}
-                whileInView={{ width: 44 }}
-                transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }}
-                viewport={{ once: true }}
-              />
+              <div className="h-0.5 w-11 bg-gradient-to-r from-teal-l to-blue-m mb-8" />
               <div className="flex gap-6">
                 {[
                   { n: '+15', l: 'Años en canal financiero' },
