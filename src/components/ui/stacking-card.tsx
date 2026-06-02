@@ -112,7 +112,7 @@ export default function StackingCards({ services }: { services: ServiceData[] })
   });
 
   return (
-    <ReactLenis root>
+    <ReactLenis>
       <div ref={container}>
         {services.map((service, i) => {
           const targetScale = 1 - (services.length - i) * 0.04;
