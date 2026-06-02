@@ -1,16 +1,8 @@
 import StackingCards, { type ServiceData } from '@/components/ui/stacking-card';
 import Nav from '@/components/ui/nav';
 import RadialOrbitalTimeline, { type TimelineItem } from '@/components/ui/radial-orbital-timeline';
-import FluidCardStack, { type EcoCard } from '@/components/ui/fluid-card-stack';
+import EcosystemGrid from '@/components/ui/ecosystem-grid';
 
-const ecoCards: EcoCard[] = [
-  { num: '01', icon: 'Smartphone',   title: 'App móvil',   desc: 'Progreso de base, cobertura y cumplimiento por ejecutivo en tiempo real.',    accent: '#00C4AA' },
-  { num: '02', icon: 'Monitor',      title: 'Dashboard',   desc: 'KPIs por programa, cobertura de PDVs y rendimiento por KAM. Actualización en vivo.', accent: '#00D4B4' },
-  { num: '03', icon: 'CalendarDays', title: 'Calendario',  desc: 'Planificación diaria de visitas reportadas en vivo por cada ejecutivo.',      accent: '#2B80D4' },
-  { num: '04', icon: 'Map',          title: 'Mapa',        desc: 'Visualización geográfica de rutas, PDV y zonas trabajadas por ejecutivo.',    accent: '#00C4AA' },
-  { num: '05', icon: 'Package',      title: 'Kardex',      desc: 'Catálogo visual de material POP con saldos, alertas e historial por PDV.',    accent: '#00D4B4' },
-  { num: '06', icon: 'FileBarChart', title: 'Reportes',    desc: 'Exportación a Excel/PDF instantánea. Búsquedas por ejecutivo y programa.',    accent: '#2B80D4' },
-];
 
 const aspiriaPhases: TimelineItem[] = [
   {
@@ -209,16 +201,16 @@ export default function Home() {
       </section>
 
       {/* ── ECOSISTEMA ── */}
-      <section id="ecosistema" className="bg-navy-d py-28">
+      <section id="ecosistema" className="bg-[#050d1f] py-28">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="text-center mb-20">
+          <div className="text-center mb-16">
             <span className="text-[11px] font-bold tracking-[.18em] uppercase text-teal block mb-4">Ecosistema ASPIRIA</span>
             <h2 className="font-serif text-4xl font-normal text-white leading-tight">
               Tecnología que <em className="italic text-teal">cierra el ciclo</em><br />de la ejecución.
             </h2>
-            <p className="text-base font-light text-white/40 mt-3">Seis módulos integrados. Clic para explorar.</p>
+            <p className="text-base font-light text-white/40 mt-3">Seis módulos integrados. Todo conectado. Todo trazable.</p>
           </div>
-          <FluidCardStack cards={ecoCards} />
+          <EcosystemGrid />
         </div>
       </section>
 
