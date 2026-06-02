@@ -1,5 +1,53 @@
 import StackingCards, { type ServiceData } from '@/components/ui/stacking-card';
 import Nav from '@/components/ui/nav';
+import RadialOrbitalTimeline, { type TimelineItem } from '@/components/ui/radial-orbital-timeline';
+
+const aspiriaPhases: TimelineItem[] = [
+  {
+    id: 1,
+    title: 'Diagnóstico',
+    date: 'Fase 01',
+    content: 'Analizamos cuentas, PDVs y brechas de ejecución antes de proponer cualquier acción.',
+    category: 'Diagnóstico',
+    icon: 'Search',
+    relatedIds: [2],
+    status: 'completed',
+    energy: 100,
+  },
+  {
+    id: 2,
+    title: 'Planificación',
+    date: 'Fase 02',
+    content: 'Rutas, frecuencias, KPIs y protocolos de visita definidos antes del arranque.',
+    category: 'Planificación',
+    icon: 'FileText',
+    relatedIds: [1, 3],
+    status: 'completed',
+    energy: 80,
+  },
+  {
+    id: 3,
+    title: 'Ejecución',
+    date: 'Fase 03',
+    content: 'Equipos KAM con protocolo, discurso y materiales. Cada visita documentada en tiempo real.',
+    category: 'Ejecución',
+    icon: 'Zap',
+    relatedIds: [2, 4],
+    status: 'in-progress',
+    energy: 60,
+  },
+  {
+    id: 4,
+    title: 'Tecnología',
+    date: 'Fase 04',
+    content: 'App, dashboard y reportes exportables. Foto, GPS y timestamp en cada cierre de visita.',
+    category: 'Tecnología',
+    icon: 'BarChart3',
+    relatedIds: [3],
+    status: 'pending',
+    energy: 40,
+  },
+];
 
 const services: ServiceData[] = [
   {
@@ -173,45 +221,17 @@ export default function Home() {
       </section>
 
       {/* ── POR QUÉ ASPIRIA ── */}
-      <section id="tecnologia" className="bg-navy py-24">
-        <div className="max-w-5xl mx-auto px-6">
+      <section id="tecnologia" className="bg-navy">
+        <div className="max-w-5xl mx-auto px-6 pt-20 pb-4">
           <span className="text-[11px] font-bold tracking-[.18em] uppercase text-white/40 block mb-4">Por qué ASPIRIA</span>
           <h2 className="font-serif text-4xl font-normal text-white leading-tight max-w-lg mb-3">
             Lo que no se mide,<br /><em className="italic text-teal-l">no se puede mejorar.</em>
           </h2>
-          <p className="text-sm font-light text-white/50 max-w-sm mb-10 leading-relaxed">
-            Operamos con un modelo de cuatro fases que convierte cada acuerdo comercial en resultados verificables.
+          <p className="text-sm font-light text-white/50 max-w-sm leading-relaxed">
+            Operamos con un modelo de cuatro fases. Haz clic en cada nodo para explorar.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 rounded-sm overflow-hidden border border-white/06 mb-9">
-            {[
-              { num: '01 · Diagnóstico', title: 'Mapeamos la realidad', desc: 'Analizamos cuentas, PDVs y brechas antes de proponer cualquier acción.' },
-              { num: '02 · Planificación', title: 'Diseñamos el modelo', desc: 'Rutas, frecuencias, KPIs y protocolos definidos antes del arranque.' },
-              { num: '03 · Ejecución', title: 'Actuamos en campo', desc: 'Equipos KAM con protocolo, discurso y materiales. Cada visita documentada.' },
-              { num: '04 · Tecnología', title: 'Medimos y trazamos', desc: 'App, dashboard y reportes exportables. Foto, GPS y timestamp por visita.' },
-            ].map(({ num, title, desc }) => (
-              <div key={num} className="bg-navy-c p-6 border-r border-white/05 last:border-r-0">
-                <span className="text-[10px] font-bold tracking-[.18em] text-teal uppercase block mb-3">{num}</span>
-                <div className="text-sm font-bold text-white mb-2">{title}</div>
-                <p className="text-xs font-light text-white/40 leading-relaxed">{desc}</p>
-              </div>
-            ))}
-          </div>
-          <div className="grid md:grid-cols-3 gap-4">
-            {[
-              { ico: '👁️', title: 'Sin caja negra', desc: 'Visibilidad completa de la operación. Sin esperar el reporte del lunes.' },
-              { ico: '📋', title: 'Trazabilidad auditable', desc: 'Foto, GPS y timestamp por visita. Cada acuerdo ejecutado queda documentado.' },
-              { ico: '📊', title: 'Reportes accionables', desc: 'Cruzamos cobertura, KAM y resultado. Decidir con datos, no con intuición.' },
-            ].map(({ ico, title, desc }) => (
-              <div key={title} className="border border-white/08 rounded-sm p-5 flex gap-4 items-start">
-                <div className="w-8 h-8 rounded-sm bg-teal/10 flex items-center justify-center shrink-0 text-sm">{ico}</div>
-                <div>
-                  <div className="text-sm font-bold text-white mb-1">{title}</div>
-                  <p className="text-xs font-light text-white/40 leading-relaxed">{desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
+        <RadialOrbitalTimeline timelineData={aspiriaPhases} />
       </section>
 
       {/* ── TRACK RECORD ── */}
