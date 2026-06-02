@@ -18,6 +18,11 @@
 
 html { scroll-behavior: smooth; }
 
+@keyframes moveBackground {
+  from { background-position: 0% 0%; }
+  to   { background-position: 0% -1000%; }
+}
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
