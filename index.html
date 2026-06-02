@@ -47,10 +47,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,19,64,.97)
 @media(max-width:640px){.nav-links{display:none}}
 
 /* ── HERO ── */
-#hero{background:var(--navy-d);padding:130px 0 88px;position:relative;overflow:hidden}
-#hero::before{content:'';position:absolute;top:-100px;right:-60px;width:480px;height:480px;background:radial-gradient(circle,rgba(0,196,170,.1) 0%,transparent 70%);pointer-events:none}
-#hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(43,128,212,.08) 0%,transparent 70%);pointer-events:none}
-.hero-inner{position:relative;z-index:1}
+#hero{position:relative;padding:130px 0 88px;overflow:hidden;background:var(--navy-d)}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.45}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(9,19,64,.92) 0%,rgba(9,19,64,.7) 55%,rgba(9,19,64,.35) 100%)}
+.hero-inner{position:relative;z-index:2}
 .hero-h1{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(30px,5vw,56px);font-weight:400;color:#fff;line-height:1.1;max-width:680px;margin-bottom:20px;letter-spacing:-.02em}
 .hero-h1 em{font-style:italic;color:var(--teal-l)}
 .hero-p{font-size:clamp(14px,1.8vw,17px);font-weight:300;color:rgba(255,255,255,.6);max-width:500px;margin-bottom:36px;line-height:1.7}
@@ -188,6 +188,10 @@ footer{background:#060d28;padding:20px;display:flex;align-items:center;justify-c
 
 <!-- HERO -->
 <section id="hero">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="video/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
   <div class="wrap hero-inner">
     <h1 class="hero-h1">Ejecutamos, medimos<br>y <em>documentamos</em><br>tu operación comercial.</h1>
     <p class="hero-p">Gestión de alianzas, impulso de medios de pago y trade marketing con trazabilidad completa en campo.</p>
