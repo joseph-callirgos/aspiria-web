@@ -22,7 +22,6 @@ export default function Nav() {
                 alt="ASPIRIA"
                 className="h-6 brightness-0 invert"
               />
-              <span className="text-base font-bold text-white tracking-tight">ASPIRIA</span>
             </a>
 
             {/* Links */}
