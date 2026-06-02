@@ -48,10 +48,10 @@ const aspiriaPhases: TimelineItem[] = [
   },
   {
     id: 4,
-    title: 'Tecnología',
+    title: 'Análisis',
     date: 'Fase 04',
     content: 'App, dashboard y reportes exportables. Foto, GPS y timestamp en cada cierre de visita.',
-    category: 'Tecnología',
+    category: 'Análisis',
     icon: 'BarChart3',
     relatedIds: [3],
     status: 'in-progress',
