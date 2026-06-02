@@ -126,7 +126,7 @@ export default function Home() {
           <span className="text-[11px] font-bold tracking-[.18em] uppercase text-teal block mb-4">
             Alianzas Comerciales · B2B · Perú
           </span>
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] tracking-tight max-w-xl mb-5">
+          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.05] tracking-tight mb-5 whitespace-nowrap">
             Ejecutamos, medimos<br />
             y <em className="text-teal-l italic">documentamos</em><br />
             tu operación comercial.
